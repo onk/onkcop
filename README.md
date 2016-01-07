@@ -1,4 +1,5 @@
 # onkcop
+[![Gem Version](https://badge.fury.io/rb/onkcop.svg)](https://badge.fury.io/rb/onkcop)
 
 OnkCop is a RuboCop configration gem.
 
