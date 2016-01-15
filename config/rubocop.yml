@@ -140,13 +140,6 @@ Style/Semicolon:
 Style/SignalException:
   EnforcedStyle: only_raise
 
-# `||` も align に使うことがあるので追加する
-Style/SpaceAroundOperators:
-  MultiSpaceAllowedForOperators:
-    - "="
-    - "=>"
-    - "||"
-
 # * 式展開したい場合に書き換えるのが面倒
 # * 文章ではダブルクォートよりもシングルクォートの方が頻出する
 # ことから EnforcedStyle: double_quotes 推奨
