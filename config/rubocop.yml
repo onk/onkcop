@@ -155,7 +155,7 @@ Style/SingleLineBlockParams:
   Enabled: false
 
 # 複数行の場合はケツカンマを入れる
-Style/TrailingComma:
+Style/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: comma
 
 ##################### Lint ##################################
