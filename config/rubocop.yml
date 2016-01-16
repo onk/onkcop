@@ -88,6 +88,10 @@ Style/HashSyntax:
     - "**/*.rake"
     - "Rakefile"
 
+# 平たくしてしまうと条件のグルーピングが脳内モデルとズレやすい
+Style/IfInsideElse:
+  Enabled: false
+
 # 条件式の方を意識させたい場合には後置の if/unless を使わない方が分かりやすい
 Style/IfUnlessModifier:
   Enabled: false
