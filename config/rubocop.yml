@@ -161,14 +161,6 @@ Style/StringLiteralsInInterpolation:
 Style/SingleLineBlockParams:
   Enabled: false
 
-# * migrate
-# * jbuilder
-# * model の association
-# * controller の callback
-# 辺りの桁揃えで引っかかるので全体的にチェックしない
-Style/SingleSpaceBeforeFirstArg:
-  Enabled: false
-
 # 複数行の場合はケツカンマを入れる
 Style/TrailingComma:
   EnforcedStyleForMultiline: comma
