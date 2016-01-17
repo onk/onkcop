@@ -78,6 +78,10 @@ Style/ExtraSpacing:
 Style/FormatString:
   EnforcedStyle: percent
 
+# まだ対応するには早い
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 # if 文の中に 3 行程度のブロックを書くぐらいは許容した方が現実的
 Style/GuardClause:
   MinBodyLength: 5
