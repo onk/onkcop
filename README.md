@@ -12,6 +12,9 @@ Add the following directive to your `.rubocop.yml`:
 ```yaml
 inherit_gem:
   onkcop: "config/rubocop.yml"
+
+AllCops:
+  TargetRubyVersion: 2.3
 ```
 
 ```sh
