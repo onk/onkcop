@@ -10,6 +10,12 @@ AllCops:
 
 ##################### Style ##################################
 
+# レキシカルスコープの扱いが alias_method の方が自然。
+# https://ernie.io/2014/10/23/in-defense-of-alias/ のように
+# 問題になる場合は自分で緩める。
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+
 # redirect_to xxx and return のイディオムを維持したい
 Style/AndOr:
   EnforcedStyle: conditionals
