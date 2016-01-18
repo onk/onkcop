@@ -89,6 +89,9 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 
 # if 文の中に 3 行程度のブロックを書くぐらいは許容した方が現実的
+# NOTE: https://github.com/bbatsov/rubocop/commit/29945958034db13af9e8ff385ec58cb9eb464596
+#       の影響で、if 文の中身が 1 行の場合に警告されるようになっている。
+#       Style/IfUnlessModifier の設定見てくれないかなぁ？ (v0.36.0)
 Style/GuardClause:
   MinBodyLength: 5
 
