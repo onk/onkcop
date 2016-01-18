@@ -106,6 +106,12 @@ Style/IfInsideElse:
 Style/IfUnlessModifier:
   Enabled: false
 
+# special_inside_parentheses (default) と比べて
+# * 横に長くなりづらい
+# * メソッド名の長さが変わったときに diff が少ない
+Style/IndentArray:
+  EnforcedStyle: consistent
+
 # ({ と hash を開始した場合に ( の位置にインデントさせる
 # そもそも {} が必要ない可能性が高いが Style/BracesAroundHashParameters はチェックしないことにしたので
 Style/IndentHash:
