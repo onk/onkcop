@@ -36,6 +36,11 @@ Style/BlockDelimiters:
 Style/BracesAroundHashParameters:
   Enabled: false
 
+# scope が違うとか親 module の存在確認が必要とかデメリットはあるが、
+# namespace 付きのクラスはかなり頻繁に作るので簡単に書きたい。
+Style/ClassAndModuleChildren:
+  Enabled: false
+
 # Style/CollectionMethods 自体は無効になっているのだが、
 #   https://github.com/bbatsov/rubocop/issues/1084
 #   https://github.com/bbatsov/rubocop/issues/1334
