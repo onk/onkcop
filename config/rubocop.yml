@@ -164,10 +164,6 @@ Style/Semicolon:
   Exclude:
     - "spec/**/*"
 
-# fail と使い分ける必要ナシ
-Style/SignalException:
-  EnforcedStyle: only_raise
-
 # * 式展開したい場合に書き換えるのが面倒
 # * 文章ではダブルクォートよりもシングルクォートの方が頻出する
 # ことから EnforcedStyle: double_quotes 推奨
