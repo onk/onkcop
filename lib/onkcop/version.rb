@@ -1,3 +1,3 @@
 module Onkcop
-  VERSION = "0.38.0.0"
+  VERSION = "0.39.0.0"
 end
