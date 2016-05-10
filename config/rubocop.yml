@@ -139,7 +139,7 @@ Style/IndentationConsistency:
 
 # scope 等は複数行でも lambda ではなく ->{} で揃えた方が見た目が綺麗
 Style/Lambda:
-  Enabled: false
+  EnforcedStyle: literal
 
 # 1_000_000 と区切り文字が 2 個以上必要になる場合のみ _ 区切りを必須にする
 Style/NumericLiterals:
