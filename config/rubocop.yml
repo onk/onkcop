@@ -76,6 +76,14 @@ Style/DoubleNegation:
 Style/DotPosition:
   EnforcedStyle: trailing
 
+# case
+# when ios?
+# when android?
+# end
+# のようなものは case の方が網羅の表現力が高い
+Style/EmptyCaseCondition:
+  Enabled: false
+
 # 明示的に else で nil を返すのは分かりやすいので許可する
 Style/EmptyElse:
   EnforcedStyle: empty
