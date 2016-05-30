@@ -141,6 +141,11 @@ Style/IndentationConsistency:
 Style/Lambda:
   EnforcedStyle: literal
 
+# end.some_method とチェインするのはダサい
+# Style/BlockDelimiters と相性が悪いけど、頑張ってコードを修正してください
+Style/MethodCalledOnDoEndBlock:
+  Enabled: true
+
 # 1_000_000 と区切り文字が 2 個以上必要になる場合のみ _ 区切りを必須にする
 Style/NumericLiterals:
   MinDigits: 7
