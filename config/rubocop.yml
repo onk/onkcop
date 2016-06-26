@@ -60,7 +60,7 @@ Style/CollectionMethods:
     reduce: "inject"
 
 # Hash#has_key? は許可したい
-Style/DeprecatedHashMethods:
+Style/PreferredHashMethods:
   Enabled: false
 
 # ドキュメントの無い public class を許可する
