@@ -1,5 +1,5 @@
 # target_version:
-#   rubocop v0.40.0
+#   rubocop v0.41.1
 
 # 自動生成されるものはチェック対象から除外する
 AllCops:
