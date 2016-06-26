@@ -197,6 +197,11 @@ Style/TrailingCommaInLiteral:
 
 ##################### Lint ##################################
 
+# RuntimeError は「特定の Error を定義できない場合」なので、
+# 定義できるエラーは RuntimeError ではなく StandardError を継承する。
+Lint/InheritException:
+  EnforcedStyle: standard_error
+
 # * 同名のメソッドがある場合にローカル変数に `_` を付ける
 # * 一時変数として `_` を付ける
 # というテクニックは頻出する
