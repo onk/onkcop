@@ -214,9 +214,10 @@ Lint/UnusedMethodArgument:
 
 ##################### Metrics ##################################
 
-# 30 まではギリギリ許せる範囲だった
+# 30 まではギリギリ許せる範囲だったけど
+# リリースごとに 3 ずつぐらい下げていきます。20 まで下げたい。
 Metrics/AbcSize:
-  Max: 30
+  Max: 27
 
 # 6 は強すぎるので緩める
 Metrics/CyclomaticComplexity:
