@@ -150,6 +150,11 @@ Style/MethodCalledOnDoEndBlock:
 Style/NumericLiterals:
   MinDigits: 7
 
+# foo.positive? は foo > 0 に比べて意味が曖昧になる
+# foo.zero? は許可したいけどメソッドごとに指定できないので一括で disable に
+Style/NumericPredicate:
+  Enabled: false
+
 # 正規表現にマッチさせた時の特殊変数の置き換えは Regex.last_match ではなく
 # 名前付きキャプチャを使って参照したいので auto-correct しない
 Style/PerlBackrefs:
