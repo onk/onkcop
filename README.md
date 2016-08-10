@@ -15,6 +15,9 @@ inherit_gem:
 
 AllCops:
   TargetRubyVersion: 2.3
+
+# Rails:
+#   Enabled: true
 ```
 
 ```sh
