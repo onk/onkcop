@@ -30,7 +30,7 @@ Add this line to your application's Gemfile:
 
 ```ruby
 group :development do
-  gem "onkcop", require: nil
+  gem "onkcop", require: false
 end
 ```
 
