@@ -29,7 +29,9 @@ bundle exec rubocop <options...>
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "onkcop"
+group :development do
+  gem "onkcop", require: nil
+end
 ```
 
 ## Contributing
