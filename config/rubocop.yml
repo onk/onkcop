@@ -204,6 +204,11 @@ Style/SingleLineBlockParams:
 Style/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: comma
 
+# v1 って変数を v_1 にはしたくないので normalcase で良い。
+# ただ v0.43.0 の実装が悪くて hoge_fuga1 も検出されるので無効化。
+Style/VariableNumber:
+  Enabled: false
+
 ##################### Lint ##################################
 
 # RuntimeError は「特定の Error を定義できない場合」なので、
