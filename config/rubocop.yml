@@ -200,6 +200,13 @@ Style/StringLiteralsInInterpolation:
 Style/SingleLineBlockParams:
   Enabled: false
 
+# v0.43.0 では
+#   (1..2).include?(1) : "yes" : "no"
+# が検出される不具合があるので無効にする。
+# そもそも無効でも良いかも。三項演算子は分かりやすく使いたい。
+Style/TernaryParentheses:
+  Enabled: false
+
 # 複数行の場合はケツカンマを入れる
 Style/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: comma
