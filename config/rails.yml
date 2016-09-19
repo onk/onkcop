@@ -1,2 +1,7 @@
 Rails:
   Enabled: true
+
+# slug とか created_by とか、NOT NULL だが create_table 時に
+# default 値を定義できないカラムは存在する。
+Rails/NotNullColumn:
+  Enabled: false
