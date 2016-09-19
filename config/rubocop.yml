@@ -177,6 +177,10 @@ Style/RedundantSelf:
 Style/RedundantReturn:
   AllowMultipleReturnValues: true
 
+# 無理して使うモンじゃない
+Style/SafeNavigation:
+  Enabled: false
+
 # spec 内は見た目が綺麗になるので許可
 Style/Semicolon:
   Exclude:
