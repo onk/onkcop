@@ -11,13 +11,13 @@ Add the following directive to your `.rubocop.yml`:
 
 ```yaml
 inherit_gem:
-  onkcop: "config/rubocop.yml"
+  onkcop:
+    - "config/rubocop.yml"
+    # uncomment if use rails cops
+    # - "config/rails.yml"
 
 AllCops:
   TargetRubyVersion: 2.3
-
-# Rails:
-#   Enabled: true
 ```
 
 ```sh
