@@ -201,7 +201,7 @@ Style/SingleLineBlockParams:
   Enabled: false
 
 # v0.43.0 では
-#   (1..2).include?(1) : "yes" : "no"
+#   (1..2).include?(1) ? "yes" : "no"
 # が検出される不具合があるので無効にする。
 # そもそも無効でも良いかも。三項演算子は分かりやすく使いたい。
 Style/TernaryParentheses:
