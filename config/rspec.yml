@@ -1,0 +1,26 @@
+require: "rubocop-rspec"
+
+# subject はコピペ可搬性よりもそのまま USAGE であって欲しい
+RSpec/DescribedClass:
+  Enabled: false
+
+# each で回したり aggregate_failures 使ってたりすると厳しい。
+# feature spec は exclude でも良いかもしれない。
+# ヒアドキュメント使うと一瞬で超えるので disable も検討。
+RSpec/ExampleLength:
+  Max: 8
+
+# let を使うのは context 間で条件が違うものが存在する時だけにしたい。
+# before の方が事前条件を整えていることが分かりやすい。
+RSpec/InstanceVariable:
+  Enabled: false
+
+# 変に名前つけて呼ぶ方が分かりづらい。
+# テスト対象メソッドを呼ぶだけの subject 以外を書かないようにする方が効く。
+RSpec/NamedSubject:
+  Enabled: false
+
+# 強く 1 example 1 assertion の立場は取らないが、多すぎてもツラいので。
+# aggregate_failures で囲われていたら無視する的なオプション欲しい。
+RSpec/MultipleExpectations:
+  Max: 3
