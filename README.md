@@ -15,6 +15,8 @@ inherit_gem:
     - "config/rubocop.yml"
     # uncomment if use rails cops
     # - "config/rails.yml"
+    # uncomment if use rspec cops
+    # - "config/rspec.yml"
 
 AllCops:
   TargetRubyVersion: 2.3
