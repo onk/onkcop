@@ -228,6 +228,12 @@ Lint/UnusedMethodArgument:
 Metrics/AbcSize:
   Max: 24
 
+# routes は巨大な block 不可避なので除外
+Metrics/BlockLength:
+  Exclude:
+    - "config/routes.rb"
+    - "config/routes/**/*.rb"
+
 # 6 は強すぎるので緩める
 Metrics/CyclomaticComplexity:
   Max: 10
