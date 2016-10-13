@@ -59,9 +59,9 @@ Style/CollectionMethods:
     inject: "inject"
     reduce: "inject"
 
-# Hash#has_key? は許可したい
+# Hash#has_key? の方が key? よりも意味が通る
 Style/PreferredHashMethods:
-  Enabled: false
+  EnforcedStyle: verbose
 
 # ドキュメントの無い public class を許可する
 Style/Documentation:
