@@ -231,6 +231,9 @@ Metrics/AbcSize:
 # routes は巨大な block 不可避なので除外
 Metrics/BlockLength:
   Exclude:
+    - "Rakefile"     # default
+    - "**/*.rake"    # default
+    - "spec/**/*.rb" # default
     - "config/routes.rb"
     - "config/routes/**/*.rb"
 
