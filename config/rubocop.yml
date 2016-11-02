@@ -200,6 +200,11 @@ Style/StringLiteralsInInterpolation:
 Style/SingleLineBlockParams:
   Enabled: false
 
+# 三項演算子は分かりやすく使いたい。
+# () を外さない方が条件式が何なのか読み取りやすいと感じる。
+Style/TernaryParentheses:
+  Enabled: false
+
 # 複数行の場合はケツカンマを入れる
 Style/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: comma
