@@ -20,11 +20,6 @@ RSpec/ImplicitExpect:
 RSpec/InstanceVariable:
   Enabled: false
 
-# 変に名前つけて呼ぶ方が分かりづらい。
-# テスト対象メソッドを呼ぶだけの subject 以外を書かないようにする方が効く。
-RSpec/NamedSubject:
-  Enabled: false
-
 # mock ではなく spy を使うのを推奨したい。
 # ただメッセージが悪く、「mock ではなく stub を使え」と言っているように読み取れる
 # (そのため Enabled: false になった) ので
@@ -37,3 +32,8 @@ RSpec/MessageExpectation:
 # aggregate_failures で囲われていたら無視する的なオプション欲しい。
 RSpec/MultipleExpectations:
   Max: 3
+
+# 変に名前つけて呼ぶ方が分かりづらい。
+# テスト対象メソッドを呼ぶだけの subject 以外を書かないようにする方が効く。
+RSpec/NamedSubject:
+  Enabled: false
