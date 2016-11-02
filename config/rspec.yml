@@ -25,6 +25,14 @@ RSpec/InstanceVariable:
 RSpec/NamedSubject:
   Enabled: false
 
+# mock ではなく spy を使うのを推奨したい。
+# ただメッセージが悪く、「mock ではなく stub を使え」と言っているように読み取れる
+# (そのため Enabled: false になった) ので
+# https://github.com/backus/rubocop-rspec/pull/224
+# が cop 名も分かりやすくなって良さそう。
+RSpec/MessageExpectation:
+  Enabled: true
+
 # 強く 1 example 1 assertion の立場は取らないが、多すぎてもツラいので。
 # aggregate_failures で囲われていたら無視する的なオプション欲しい。
 RSpec/MultipleExpectations:
