@@ -1,10 +1,6 @@
 Rails:
   Enabled: true
 
-# v0.44.1 には session, xhr, format を解釈しないバグがある
-Rails/HttpPositionalArguments:
-  Enabled: false
-
 # slug とか created_by とか、NOT NULL だが create_table 時に
 # default 値を定義できないカラムは存在する。
 Rails/NotNullColumn:
