@@ -10,6 +10,11 @@ RSpec/DescribedClass:
 RSpec/ExampleLength:
   Max: 8
 
+# one-liner の should は書きやすいし意味が通りやすいし副作用も無いので撥ねる必要がない。
+# ただ expect 派に対して強制するほどでもないので統一はしない。
+RSpec/ImplicitExpect:
+  Enabled: false
+
 # let を使うのは context 間で条件が違うものが存在する時だけにしたい。
 # before の方が事前条件を整えていることが分かりやすい。
 RSpec/InstanceVariable:
