@@ -228,12 +228,15 @@ Lint/UnusedMethodArgument:
 Metrics/AbcSize:
   Max: 24
 
+# Gemfile, Guardfile は DSL 的で基本的に複雑にはならないので除外
 # routes は巨大な block 不可避なので除外
 Metrics/BlockLength:
   Exclude:
     - "Rakefile"     # default
     - "**/*.rake"    # default
     - "spec/**/*.rb" # default
+    - "Gemfile"
+    - "Guardfile"
     - "config/routes.rb"
     - "config/routes/**/*.rb"
 
