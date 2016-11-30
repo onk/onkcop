@@ -84,6 +84,11 @@ Style/EmptyCaseCondition:
 Style/EmptyElse:
   EnforcedStyle: empty
 
+# 空メソッドの場合だけ1行で書かなければいけない理由が無い
+# 「セミコロンは使わない」に寄せた方がルールがシンプル
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
 # 桁揃えが綺麗にならないことが多いので migration は除外
 Style/ExtraSpacing:
   Exclude:
