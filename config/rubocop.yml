@@ -84,6 +84,11 @@ Style/EmptyCaseCondition:
 Style/EmptyElse:
   EnforcedStyle: empty
 
+# 空メソッドの場合だけ1行で書かなければいけない理由が無い
+# 「セミコロンは使わない」に寄せた方がルールがシンプル
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
 # 桁揃えが綺麗にならないことが多いので migration は除外
 Style/ExtraSpacing:
   Exclude:
@@ -203,7 +208,7 @@ Style/StringLiteralsInInterpolation:
 # 三項演算子は分かりやすく使いたい。
 # () を外さない方が条件式が何なのか読み取りやすいと感じる。
 Style/TernaryParentheses:
-  Enabled: false
+  EnforcedStyle: require_parentheses_when_complex
 
 # 複数行の場合はケツカンマを入れる
 Style/TrailingCommaInLiteral:
