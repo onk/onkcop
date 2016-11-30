@@ -59,22 +59,18 @@ Style/CollectionMethods:
     inject: "inject"
     reduce: "inject"
 
-# Hash#has_key? の方が key? よりも意味が通る
-Style/PreferredHashMethods:
-  EnforcedStyle: verbose
-
 # ドキュメントの無い public class を許可する
 Style/Documentation:
-  Enabled: false
-
-# !! のイディオムは積極的に使う
-Style/DoubleNegation:
   Enabled: false
 
 # メソッドチェーンの改行は末尾に . を入れる
 # REPL に貼り付けた際の暴発を防ぐため
 Style/DotPosition:
   EnforcedStyle: trailing
+
+# !! のイディオムは積極的に使う
+Style/DoubleNegation:
+  Enabled: false
 
 # case
 # when ios?
@@ -169,13 +165,17 @@ Style/PredicateName:
     - "is_"
     - "have_"
 
-# 特に model 内において、ローカル変数とメソッド呼び出しの区別をつけた方が分かりやすい場合が多い
-Style/RedundantSelf:
-  Enabled: false
+# Hash#has_key? の方が key? よりも意味が通る
+Style/PreferredHashMethods:
+  EnforcedStyle: verbose
 
 # 受け取り側で multiple assignment しろというのを明示
 Style/RedundantReturn:
   AllowMultipleReturnValues: true
+
+# 特に model 内において、ローカル変数とメソッド呼び出しの区別をつけた方が分かりやすい場合が多い
+Style/RedundantSelf:
+  Enabled: false
 
 # 無理して使うモンじゃない
 Style/SafeNavigation:
@@ -186,6 +186,10 @@ Style/Semicolon:
   Exclude:
     - "spec/**/*"
 
+# いくらなんでも inject { |a, e| } は短すぎるので分かりやすい名前をつけたい
+Style/SingleLineBlockParams:
+  Enabled: false
+
 # * 式展開したい場合に書き換えるのが面倒
 # * 文章ではダブルクォートよりもシングルクォートの方が頻出する
 # ことから EnforcedStyle: double_quotes 推奨
@@ -194,10 +198,6 @@ Style/StringLiterals:
 
 # auto-correct 時に Style/StringLiterals とカニバって無限ループになる (v0.28.0)
 Style/StringLiteralsInInterpolation:
-  Enabled: false
-
-# いくらなんでも inject { |a, e| } は短すぎるので分かりやすい名前をつけたい
-Style/SingleLineBlockParams:
   Enabled: false
 
 # 三項演算子は分かりやすく使いたい。
