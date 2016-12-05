@@ -1,6 +1,6 @@
 # onkcop
 
-## v0.46.0 (2016-11-30)
+## v0.46.0.0 (2016-11-30)
 
 [full changelog](https://github.com/onk/onkcop/compare/v0.45.0.0...v0.46.0.0)
 
@@ -9,7 +9,7 @@
 * Use `Style/TernaryParentheses` cop `require_parentheses_when_complex` style.
 
 
-## v0.45.0 (2016-11-02)
+## v0.45.0.0 (2016-11-02)
 [full changelog](https://github.com/onk/onkcop/compare/v0.44.1.1...v0.45.0.0)
 
 * Update to `rubocop` v0.45.0 and `rubocop-rspec` v1.8.0.
