@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift File.dirname(__FILE__) + "/../lib"
+
+# Exit cleanly from an early interrupt
+Signal.trap("INT") { exit 1 }
+
+require "onkcop"
+
+Onkcop::CLI.start(ARGV)

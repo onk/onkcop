@@ -1,3 +1,4 @@
+require "onkcop/cli"
 require "onkcop/version"
 
 module Onkcop
