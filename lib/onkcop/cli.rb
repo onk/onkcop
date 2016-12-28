@@ -4,8 +4,7 @@ module Onkcop
     def self.start(args)
       action_name = retrieve_command_name(args)
       unless action_name
-        puts "onkcop commands:"
-        puts "  init - Setup .rubocop.yml"
+        print_help
         exit
       end
 
@@ -16,6 +15,7 @@ module Onkcop
       end
 
       puts "Could not find command #{action_name}."
+      print_help
       exit(1)
     rescue => e
       puts e.message
@@ -25,6 +25,11 @@ module Onkcop
     def self.retrieve_command_name(args)
       meth = args.first.to_s unless args.empty?
       args.shift if meth && (meth !~ /^\-/)
+    end
+
+    def self.print_help
+      puts "onkcop commands:"
+      puts "  init - Setup .rubocop.yml"
     end
 
     CONFIG_FILE_NAME = ".rubocop.yml"
