@@ -1,5 +1,14 @@
 # onkcop
 
+## v0.46.0.1 (2017-01-07)
+
+[full changelog](https://github.com/onk/onkcop/compare/v0.46.0.0...v0.46.0.1)
+
+* Update to `rubocop-rspec` v1.9.1.
+* Disable `RSpec/MessageExpectation` cop that is replaced with a new cop: `RSpec/MessageSpies`.
+* Add CLI for setup `.rubocop.yml`.
+
+
 ## v0.46.0.0 (2016-11-30)
 
 [full changelog](https://github.com/onk/onkcop/compare/v0.45.0.0...v0.46.0.0)
