@@ -7,7 +7,13 @@ OnkCop is a RuboCop configration gem.
 
 ## Usage
 
-Add the following directive to your `.rubocop.yml`:
+Setup .rubocop.yml
+
+```sh
+bundle exec onkcop init
+```
+
+`init` generate the following directive to your `.rubocop.yml`:
 
 ```yaml
 inherit_gem:
