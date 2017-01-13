@@ -214,6 +214,15 @@ Style/TernaryParentheses:
 Style/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: comma
 
+# 条件式で arr.size > 0 が使われた時に
+#   if !arr.empty?
+#   else
+#   end
+# に修正されるのが嫌。
+# 中身を入れ替えて否定外しても良いんだけど、どちらが例外的な処理なのかが分かりづらくなる。
+Style/ZeroLengthPredicate:
+  Enabled: false
+
 ##################### Lint ##################################
 
 # RuntimeError は「特定の Error を定義できない場合」なので、
