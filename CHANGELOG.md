@@ -1,5 +1,14 @@
 # onkcop
 
+## v0.47.1.0 (2017-01-20)
+
+[full changelog](https://github.com/onk/onkcop/compare/v0.46.0.1...v0.47.1.0)
+
+* Update to `rubocop` v0.47.1 and `rubocop-rspec` v1.10.0.
+* Remove `Style/SingleLineBlockParams` cop config because disabled by default.
+* Disable new `Security/YAMLLoad` cop.
+
+
 ## v0.46.0.1 (2017-01-07)
 
 [full changelog](https://github.com/onk/onkcop/compare/v0.46.0.0...v0.46.0.1)
