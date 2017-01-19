@@ -191,10 +191,6 @@ Style/Semicolon:
   Exclude:
     - "spec/**/*"
 
-# いくらなんでも inject { |a, e| } は短すぎるので分かりやすい名前をつけたい
-Style/SingleLineBlockParams:
-  Enabled: false
-
 # * 式展開したい場合に書き換えるのが面倒
 # * 文章ではダブルクォートよりもシングルクォートの方が頻出する
 # ことから EnforcedStyle: double_quotes 推奨
