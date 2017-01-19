@@ -277,3 +277,9 @@ Metrics/MethodLength:
 # 分岐の数。ガード句を多用しているとデフォルト 7 だと厳しい
 Metrics/PerceivedComplexity:
   Max: 8
+
+##################### Security ##################################
+
+# 毎回 YAML.safe_load(yaml_str, [Date, Time]) するのは面倒で。。
+Security/YAMLLoad:
+  Enabled: false
