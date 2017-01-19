@@ -244,12 +244,13 @@ Metrics/AbcSize:
   Max: 24
 
 # Gemfile, Guardfile は DSL 的で基本的に複雑にはならないので除外
-# routes は巨大な block 不可避なので除外
+# rake, rspec, routes は巨大な block 不可避なので除外
+# TODO: ExcludedMethods の精査
 Metrics/BlockLength:
   Exclude:
-    - "Rakefile"     # default
-    - "**/*.rake"    # default
-    - "spec/**/*.rb" # default
+    - "Rakefile"
+    - "**/*.rake"
+    - "spec/**/*.rb"
     - "Gemfile"
     - "Guardfile"
     - "config/routes.rb"
