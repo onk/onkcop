@@ -191,10 +191,6 @@ Style/Semicolon:
   Exclude:
     - "spec/**/*"
 
-# いくらなんでも inject { |a, e| } は短すぎるので分かりやすい名前をつけたい
-Style/SingleLineBlockParams:
-  Enabled: false
-
 # * 式展開したい場合に書き換えるのが面倒
 # * 文章ではダブルクォートよりもシングルクォートの方が頻出する
 # ことから EnforcedStyle: double_quotes 推奨
@@ -248,12 +244,13 @@ Metrics/AbcSize:
   Max: 24
 
 # Gemfile, Guardfile は DSL 的で基本的に複雑にはならないので除外
-# routes は巨大な block 不可避なので除外
+# rake, rspec, routes は巨大な block 不可避なので除外
+# TODO: ExcludedMethods の精査
 Metrics/BlockLength:
   Exclude:
-    - "Rakefile"     # default
-    - "**/*.rake"    # default
-    - "spec/**/*.rb" # default
+    - "Rakefile"
+    - "**/*.rake"
+    - "spec/**/*.rb"
     - "Gemfile"
     - "Guardfile"
     - "config/routes.rb"
@@ -280,3 +277,9 @@ Metrics/MethodLength:
 # 分岐の数。ガード句を多用しているとデフォルト 7 だと厳しい
 Metrics/PerceivedComplexity:
   Max: 8
+
+##################### Security ##################################
+
+# 毎回 YAML.safe_load(yaml_str, [Date, Time]) するのは面倒で。。
+Security/YAMLLoad:
+  Enabled: false
