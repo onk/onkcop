@@ -201,6 +201,10 @@ Style/StringLiterals:
 Style/StringLiteralsInInterpolation:
   Enabled: false
 
+# String#intern は ruby の内部表現すぎるので String#to_sym を使う
+Style/StringMethods:
+  Enabled: true
+
 # 三項演算子は分かりやすく使いたい。
 # () を外さない方が条件式が何なのか読み取りやすいと感じる。
 Style/TernaryParentheses:
