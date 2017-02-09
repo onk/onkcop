@@ -197,10 +197,6 @@ Style/Semicolon:
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
-# auto-correct 時に Style/StringLiterals とカニバって無限ループになる (v0.28.0)
-Style/StringLiteralsInInterpolation:
-  Enabled: false
-
 # String#intern は ruby の内部表現すぎるので String#to_sym を使う
 Style/StringMethods:
   Enabled: true
