@@ -221,6 +221,20 @@ Style/ZeroLengthPredicate:
 
 ##################### Lint ##################################
 
+# Style/EmptyCaseCondition と同じく網羅の表現力が empty when を認めた方が高いし、
+# 頻出する対象を最初の when で撥ねるのはパフォーマンス向上で頻出する。
+# また、
+#   case foo
+#   when 42
+#     # nop
+#   when 1..100
+#     ...
+#   end
+# と、下の when がキャッチしてしまう場合等に対応していない。
+# See. http://tech.sideci.com/entry/2016/11/01/105900
+Lint/EmptyWhen:
+  Enabled: false
+
 # RuntimeError は「特定の Error を定義できない場合」なので、
 # 定義できるエラーは RuntimeError ではなく StandardError を継承する。
 Lint/InheritException:
