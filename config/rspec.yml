@@ -2,7 +2,7 @@ require: "rubocop-rspec"
 
 # subject はコピペ可搬性よりもそのまま USAGE であって欲しい
 RSpec/DescribedClass:
-  Enabled: false
+  EnforcedStyle: explicit
 
 # each で回したり aggregate_failures 使ってたりすると厳しい。
 # feature spec は exclude でも良いかもしれない。
