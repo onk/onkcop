@@ -255,6 +255,7 @@ Metrics/BlockLength:
     - "Guardfile"
     - "config/routes.rb"
     - "config/routes/**/*.rb"
+    - "*.gemspec"
 
 # 6 は強すぎるので緩める
 Metrics/CyclomaticComplexity:
