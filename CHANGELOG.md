@@ -1,5 +1,12 @@
 # onkcop
 
+## v0.47.1.2 (2017-03-01)
+
+[full changelog](https://github.com/onk/onkcop/compare/v0.47.1.1...v0.47.1.2)
+
+* Change `Style/StringLiteralsInInterpolation` to `double_quotes` style.
+
+
 ## v0.47.1.1 (2017-03-01)
 
 [full changelog](https://github.com/onk/onkcop/compare/v0.47.1.0...v0.47.1.1)
