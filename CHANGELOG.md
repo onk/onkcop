@@ -1,5 +1,17 @@
 # onkcop
 
+## v0.47.1.1 (2017-03-01)
+
+[full changelog](https://github.com/onk/onkcop/compare/v0.47.1.0...v0.47.1.1)
+
+* Update `rubocop-rspec` v1.12.0.
+* Enable `Style/StringMethods` cop.
+* Enable `Style/StringLiteralsInInterpolation` cop.
+* Change `RSpec/DescribedClass` to `explicit` style.
+* Exclude `*.gemspec` from `Metrics/BlockLength` cop.
+* Disable `Lint/EmptyWhen` cop.
+
+
 ## v0.47.1.0 (2017-01-20)
 
 [full changelog](https://github.com/onk/onkcop/compare/v0.46.0.1...v0.47.1.0)
