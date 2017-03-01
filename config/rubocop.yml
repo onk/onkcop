@@ -197,6 +197,11 @@ Style/Semicolon:
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
+# 式展開中でもダブルクォートを使う
+# 普段の文字列リテラルがダブルクォートなので使い分けるのが面倒
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+
 # String#intern は ruby の内部表現すぎるので String#to_sym を使う
 Style/StringMethods:
   Enabled: true
