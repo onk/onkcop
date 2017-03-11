@@ -21,7 +21,6 @@ RSpec/InstanceVariable:
   Enabled: false
 
 # 強く 1 example 1 assertion の立場は取らないが、多すぎてもツラいので。
-# aggregate_failures で囲われていたら無視する的なオプション欲しい。
 RSpec/MultipleExpectations:
   Max: 3
 
