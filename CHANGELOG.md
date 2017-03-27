@@ -1,5 +1,19 @@
 # onkcop
 
+## v0.48.0.0 (2017-03-29)
+
+[full changelog](https://github.com/onk/onkcop/compare/v0.47.1.2...v0.48.0.0)
+
+* Update `rubocop` v0.48.0.
+* Disable new `Lint/AmbiguousBlockAssociation` cop.
+* Disable new `Rails/Blank` cop.
+* Disable `Style/SymbolArray`, `StyleWordArray` cop.
+* Change `Style/MultilineMethodCallIndentation` to `indented_relative_to_receiver` style.
+* Exclude RSpec directory from new `Style/MixinGrouping` cop.
+* Ignore `node_modules` dir.
+* Add `TargetRailsVersion` to README and template
+
+
 ## v0.47.1.2 (2017-03-01)
 
 [full changelog](https://github.com/onk/onkcop/compare/v0.47.1.1...v0.47.1.2)
