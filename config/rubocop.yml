@@ -148,6 +148,12 @@ Style/Lambda:
 Style/MethodCalledOnDoEndBlock:
   Enabled: true
 
+# RSpec の matcher を誤検知するため
+#   expect(array).to include("a", "b")
+Style/MixinGrouping:
+  Exclude:
+    - "spec/**/*"
+
 # メソッドチェーン感がより感じられるインデントにする
 Style/MultilineMethodCallIndentation:
   EnforcedStyle: indented_relative_to_receiver
