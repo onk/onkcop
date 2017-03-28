@@ -221,6 +221,11 @@ Style/StringLiteralsInInterpolation:
 Style/StringMethods:
   Enabled: true
 
+# %w() と %i() が見分けづらいので Style/WordArray と合わせて無効に。
+# 書き手に委ねるという意味で、Enabled: false にしています。使っても良い。
+Style/SymbolArray:
+  Enabled: false
+
 # 三項演算子は分かりやすく使いたい。
 # () を外さない方が条件式が何なのか読み取りやすいと感じる。
 Style/TernaryParentheses:
@@ -229,6 +234,11 @@ Style/TernaryParentheses:
 # 複数行の場合はケツカンマを入れる
 Style/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: comma
+
+# %w() と %i() が見分けづらいので Style/SymbolArray と合わせて無効に。
+# 書き手に委ねるという意味で、Enabled: false にしています。使っても良い。
+Style/WordArray:
+  Enabled: false
 
 # 条件式で arr.size > 0 が使われた時に
 #   if !arr.empty?
