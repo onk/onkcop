@@ -1,6 +1,10 @@
 Rails:
   Enabled: true
 
+# v0.48.0 に `||` でエラーになるバグがあるため。 pull/4175
+Rails/Blank:
+  Enabled: false
+
 # slug とか created_by とか、NOT NULL だが create_table 時に
 # default 値を定義できないカラムは存在する。
 Rails/NotNullColumn:
