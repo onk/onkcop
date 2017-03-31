@@ -247,17 +247,6 @@ Style/ZeroLengthPredicate:
 
 #################### Lint ##################################
 
-# メソッドの引数に lambda を渡すパターンが検出されるため。
-# この場合は単一引数だし Ambiguous ではない (と思う) ので誤検知っぽい。
-#   some_method ->(a) { a }
-# pull/4191 で修正済み
-#
-# assignment(`=`) が OK で `==`, `!=` が NG なのも考慮漏れっぽく見える。
-#   if [a, b] != array.sort_by { |e| e["id"] }
-# は右から評価されるのを意図しているし違和感無い。
-Lint/AmbiguousBlockAssociation:
-  Enabled: false
-
 # Style/EmptyCaseCondition と同じく網羅の表現力が empty when を認めた方が高いし、
 # 頻出する対象を最初の when で撥ねるのはパフォーマンス向上で頻出する。
 # また、
