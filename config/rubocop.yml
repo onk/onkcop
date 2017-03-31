@@ -158,10 +158,9 @@ Style/MultilineMethodCallIndentation:
 # 1_000_000 と区切り文字が 2 個以上必要になる場合のみ _ 区切りを必須にする
 # 10_000_00 は許可しない。(これは例えば 10000 ドルをセント単位にする時に便利だが
 # 頻出しないので foolproof に振る
-# TODO: Strict パラメータは warning が出るので一旦無効に。 pull/4180
 Style/NumericLiterals:
   MinDigits: 7
-  # Strict: true
+  Strict: true
 
 # foo.positive? は foo > 0 に比べて意味が曖昧になる
 # foo.zero? は許可したいけどメソッドごとに指定できないので一括で disable に
