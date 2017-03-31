@@ -30,9 +30,11 @@ Style/BlockDelimiters:
   Exclude:
     - "spec/**/*"
 
-# option 等、明示的にハッシュにした方が分かりやすい場合もある
+# 最後から 2 番目の引数が hash の場合に、最後の hash のブレースを省略しない。
+# Rails の form_tag や f.select 等、メソッドの options と html_options との
+# 両方を指定可能なときによく使う。
 Style/BracesAroundHashParameters:
-  Enabled: false
+  EnforcedStyle: context_dependent
 
 # scope が違うとか親 module の存在確認が必要とかデメリットはあるが、
 # namespace 付きのクラスはかなり頻繁に作るので簡単に書きたい。
@@ -127,8 +129,8 @@ Style/IfUnlessModifier:
 Style/IndentArray:
   EnforcedStyle: consistent
 
-# ({ と hash を開始した場合に ( の位置にインデントさせる
-# そもそも {} が必要ない可能性が高いが Style/BracesAroundHashParameters はチェックしないことにしたので
+# ({ と hash を開始した場合に ( とみなしてインデントする
+# Style/BracesAroundHashParameters を context_dependent にしているので。
 Style/IndentHash:
   EnforcedStyle: consistent
 
