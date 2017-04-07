@@ -145,12 +145,6 @@ Style/Lambda:
 Style/MethodCalledOnDoEndBlock:
   Enabled: true
 
-# RSpec の matcher を誤検知するため
-#   expect(array).to include("a", "b")
-Style/MixinGrouping:
-  Exclude:
-    - "spec/**/*"
-
 # メソッドチェーン感がより感じられるインデントにする
 Style/MultilineMethodCallIndentation:
   EnforcedStyle: indented_relative_to_receiver
@@ -158,10 +152,9 @@ Style/MultilineMethodCallIndentation:
 # 1_000_000 と区切り文字が 2 個以上必要になる場合のみ _ 区切りを必須にする
 # 10_000_00 は許可しない。(これは例えば 10000 ドルをセント単位にする時に便利だが
 # 頻出しないので foolproof に振る
-# TODO: Strict パラメータは warning が出るので一旦無効に。 pull/4180
 Style/NumericLiterals:
   MinDigits: 7
-  # Strict: true
+  Strict: true
 
 # foo.positive? は foo > 0 に比べて意味が曖昧になる
 # foo.zero? は許可したいけどメソッドごとに指定できないので一括で disable に
@@ -247,17 +240,6 @@ Style/ZeroLengthPredicate:
   Enabled: false
 
 #################### Lint ##################################
-
-# メソッドの引数に lambda を渡すパターンが検出されるため。
-# この場合は単一引数だし Ambiguous ではない (と思う) ので誤検知っぽい。
-#   some_method ->(a) { a }
-# pull/4191 で修正済み
-#
-# assignment(`=`) が OK で `==`, `!=` が NG なのも考慮漏れっぽく見える。
-#   if [a, b] != array.sort_by { |e| e["id"] }
-# は右から評価されるのを意図しているし違和感無い。
-Lint/AmbiguousBlockAssociation:
-  Enabled: false
 
 # Style/EmptyCaseCondition と同じく網羅の表現力が empty when を認めた方が高いし、
 # 頻出する対象を最初の when で撥ねるのはパフォーマンス向上で頻出する。
