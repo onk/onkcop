@@ -1,5 +1,16 @@
 # onkcop
 
+## v0.48.1.0 (2017-04-17)
+
+[full changelog](https://github.com/onk/onkcop/compare/v0.48.0.0...v0.48.1.0)
+
+* Update `rubocop` v0.48.1.
+* Enable `Rails/Blank` cop.
+* Enable `Lint/AmbiguousBlockAssociation` cop.
+* Remove Exclude option from `Style/MixinGrouping` cop.
+* Change `Style/NumericLiterals` cop to `Strict`.
+
+
 ## v0.48.0.0 (2017-03-29)
 
 [full changelog](https://github.com/onk/onkcop/compare/v0.47.1.2...v0.48.0.0)
