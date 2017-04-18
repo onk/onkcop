@@ -1,5 +1,10 @@
 # onkcop
 
+## v0.48.1.1 (2017-04-18)
+
+* Disable `Lint/AmbiguousBlockAssociation` cop.
+
+
 ## v0.48.1.0 (2017-04-17)
 
 [full changelog](https://github.com/onk/onkcop/compare/v0.48.0.0...v0.48.1.0)
