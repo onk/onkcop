@@ -241,6 +241,13 @@ Style/ZeroLengthPredicate:
 
 #################### Lint ##################################
 
+# メソッドの引数に lambda を渡すパターンが検出されるため。
+# DSL 的な記述 (ActiveRecord の scope や capistrano の set 等) でよく見る。
+#   scope :published, -> { where(published: true) }
+# pull/4237 で修正済み
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
 # Style/EmptyCaseCondition と同じく網羅の表現力が empty when を認めた方が高いし、
 # 頻出する対象を最初の when で撥ねるのはパフォーマンス向上で頻出する。
 # また、
