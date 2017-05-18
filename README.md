@@ -27,7 +27,7 @@ inherit_gem:
 AllCops:
   TargetRubyVersion: 2.4
   # uncomment if use rails cops
-  # TargetRailsVersion: 5.0
+  # TargetRailsVersion: 5.1
 ```
 
 ```sh
