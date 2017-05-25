@@ -250,6 +250,14 @@ Style/ZeroLengthPredicate:
 
 #################### Lint ##################################
 
+# spec 内では
+# expect { subject }.to change { foo }
+# という書き方をよく行うので () を省略したい。
+# { foo } は明らかに change に紐付く。
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - "spec/**/*"
+
 # Style/EmptyCaseCondition と同じく網羅の表現力が empty when を認めた方が高いし、
 # 頻出する対象を最初の when で撥ねるのはパフォーマンス向上で頻出する。
 # また、
