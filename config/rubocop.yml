@@ -6,6 +6,38 @@ AllCops:
     - "node_modules/**/*"
   DisplayCopNames: true
 
+#################### Layout ################################
+
+# メソッドチェーンの改行は末尾に . を入れる
+# REPL に貼り付けた際の暴発を防ぐため
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+# 桁揃えが綺麗にならないことが多いので migration は除外
+Layout/ExtraSpacing:
+  Exclude:
+    - "db/migrate/*.rb"
+
+# special_inside_parentheses (default) と比べて
+# * 横に長くなりづらい
+# * メソッド名の長さが変わったときに diff が少ない
+Layout/IndentArray:
+  EnforcedStyle: consistent
+
+# ({ と hash を開始した場合に ( の位置にインデントさせる
+# そもそも {} が必要ない可能性が高いが Style/BracesAroundHashParameters はチェックしないことにしたので
+Layout/IndentHash:
+  EnforcedStyle: consistent
+
+# private/protected は一段深くインデントする
+Layout/IndentationConsistency:
+  EnforcedStyle: rails
+
+# メソッドチェーン感がより感じられるインデントにする
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented_relative_to_receiver
+
+
 #################### Style #################################
 
 # レキシカルスコープの扱いが alias_method の方が自然。
@@ -61,11 +93,6 @@ Style/CollectionMethods:
 Style/Documentation:
   Enabled: false
 
-# メソッドチェーンの改行は末尾に . を入れる
-# REPL に貼り付けた際の暴発を防ぐため
-Style/DotPosition:
-  EnforcedStyle: trailing
-
 # !! のイディオムは積極的に使う
 Style/DoubleNegation:
   Enabled: false
@@ -86,11 +113,6 @@ Style/EmptyElse:
 # 「セミコロンは使わない」に寄せた方がルールがシンプル
 Style/EmptyMethod:
   EnforcedStyle: expanded
-
-# 桁揃えが綺麗にならないことが多いので migration は除外
-Style/ExtraSpacing:
-  Exclude:
-    - "db/migrate/*.rb"
 
 # いずれかに揃えるのならば `sprintf` や `format` より String#% が好きです
 Style/FormatString:
@@ -121,21 +143,6 @@ Style/IfInsideElse:
 Style/IfUnlessModifier:
   Enabled: false
 
-# special_inside_parentheses (default) と比べて
-# * 横に長くなりづらい
-# * メソッド名の長さが変わったときに diff が少ない
-Style/IndentArray:
-  EnforcedStyle: consistent
-
-# ({ と hash を開始した場合に ( の位置にインデントさせる
-# そもそも {} が必要ない可能性が高いが Style/BracesAroundHashParameters はチェックしないことにしたので
-Style/IndentHash:
-  EnforcedStyle: consistent
-
-# private/protected は一段深くインデントする
-Style/IndentationConsistency:
-  EnforcedStyle: rails
-
 # scope 等は複数行でも lambda ではなく ->{} で揃えた方が見た目が綺麗
 Style/Lambda:
   EnforcedStyle: literal
@@ -144,10 +151,6 @@ Style/Lambda:
 # Style/BlockDelimiters と相性が悪いけど、頑張ってコードを修正してください
 Style/MethodCalledOnDoEndBlock:
   Enabled: true
-
-# メソッドチェーン感がより感じられるインデントにする
-Style/MultilineMethodCallIndentation:
-  EnforcedStyle: indented_relative_to_receiver
 
 # 1_000_000 と区切り文字が 2 個以上必要になる場合のみ _ 区切りを必須にする
 # 10_000_00 は許可しない。(これは例えば 10000 ドルをセント単位にする時に便利だが
@@ -225,6 +228,12 @@ Style/TernaryParentheses:
 Style/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: comma
 
+# 0 <= foo && foo < 5 のように数直線上に並べるのは
+# コードを読みやすくするテクニック。
+# また、self == other, __FILE__ == $0 はイディオムなので許可。
+Style/YodaCondition:
+  Enabled: false
+
 # %w() と %i() が見分けづらいので Style/SymbolArray と合わせて無効に。
 # 書き手に委ねるという意味で、Enabled: false にしています。使っても良い。
 Style/WordArray:
@@ -241,12 +250,13 @@ Style/ZeroLengthPredicate:
 
 #################### Lint ##################################
 
-# メソッドの引数に lambda を渡すパターンが検出されるため。
-# DSL 的な記述 (ActiveRecord の scope や capistrano の set 等) でよく見る。
-#   scope :published, -> { where(published: true) }
-# pull/4237 で修正済み
+# spec 内では
+# expect { subject }.to change { foo }
+# という書き方をよく行うので () を省略したい。
+# { foo } は明らかに change に紐付く。
 Lint/AmbiguousBlockAssociation:
-  Enabled: false
+  Exclude:
+    - "spec/**/*"
 
 # Style/EmptyCaseCondition と同じく網羅の表現力が empty when を認めた方が高いし、
 # 頻出する対象を最初の when で撥ねるのはパフォーマンス向上で頻出する。
