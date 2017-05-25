@@ -1,5 +1,15 @@
 # onkcop
 
+## v0.49.0.0 (2017-05-25)
+
+[full changelog](https://github.com/onk/onkcop/compare/v0.48.1.1...v0.49.0.0)
+
+* Update `rubocop` v0.49.0 and `rubocop-rspec` v1.15.1
+* Enable `Lint/AmbiguousBlockAssociation` cop except `spec/**/*`
+* Change some cops to `Layout` department
+* Disable new `Style/YodaCondition` cop
+
+
 ## v0.48.1.1 (2017-04-18)
 
 [full changelog](https://github.com/onk/onkcop/compare/v0.48.1.0...v0.48.1.1)
