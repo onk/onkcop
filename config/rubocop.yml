@@ -224,8 +224,12 @@ Style/SymbolArray:
 Style/TernaryParentheses:
   EnforcedStyle: require_parentheses_when_complex
 
-# 複数行の場合はケツカンマを入れる
+# 複数行の場合はケツカンマを入れる(リテラル)
 Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
+
+# 複数行の場合はケツカンマを入れる(引数)
+Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: comma
 
 # 0 <= foo && foo < 5 のように数直線上に並べるのは
