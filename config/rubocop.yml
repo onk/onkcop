@@ -225,10 +225,20 @@ Style/TernaryParentheses:
   EnforcedStyle: require_parentheses_when_complex
 
 # 複数行の場合はケツカンマを入れる(引数)
+# Ruby は関数の引数もカンマを許容しているので
+# * 単行は常にケツカンマ無し
+# * 複数行は常にケツカンマ有り
+# に統一したい。
+# 見た目がアレだが、ES2017 でも関数引数のケツカンマが許容されるので
+# 世界はそちらに向かっている。
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: comma
 
 # 複数行の場合はケツカンマを入れる(リテラル)
+# JSON がケツカンマを許していないという反対意見もあるが、
+# 古い JScript の仕様に縛られる必要は無い。
+# IE9 以降はリテラルでケツカンマ OK なので正しい差分行の検出に寄せる。
+# 2 insertions(+), 1 deletion(-) ではなく、1 insertions
 Style/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: comma
 
