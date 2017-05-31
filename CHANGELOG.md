@@ -1,5 +1,13 @@
 # onkcop
 
+## v0.49.1.0 (2017-05-31)
+
+[full changelog](https://github.com/onk/onkcop/compare/v0.49.0.0...v0.49.1.0)
+
+* Update `rubocop` v0.49.1.
+* Change `Style/TrailingCommaInArguments` to `comma` style.
+
+
 ## v0.49.0.0 (2017-05-25)
 
 [full changelog](https://github.com/onk/onkcop/compare/v0.48.1.1...v0.49.0.0)
