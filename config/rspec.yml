@@ -4,6 +4,14 @@ require: "rubocop-rspec"
 RSpec/DescribedClass:
   EnforcedStyle: explicit
 
+# it が一つしか無いような context では空行を開ける方が読みづらい
+#   context "when foo is bar" do
+#     let(:foo) { bar }
+#     it { is_expected.to do_something }
+#   end
+RSpec/EmptyLineAfterFinalLet:
+  Enabled: false
+
 # each で回したり aggregate_failures 使ってたりすると厳しい。
 # feature spec は exclude でも良いかもしれない。
 # ヒアドキュメント使うと一瞬で超えるので disable も検討。
