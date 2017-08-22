@@ -344,6 +344,13 @@ Metrics/MethodLength:
 Metrics/PerceivedComplexity:
   Max: 8
 
+#################### Performance ###########################
+
+# downcase or upcase しての比較はイディオムの域なので、多少の
+# パフォーマンスの違いがあろうが casecmp に変える意義を感じない
+Performance/Casecmp:
+  Enabled: false
+
 #################### Security ##############################
 
 # 毎回 YAML.safe_load(yaml_str, [Date, Time]) するのは面倒で。。
