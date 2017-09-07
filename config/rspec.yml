@@ -36,3 +36,8 @@ RSpec/MultipleExpectations:
 # テスト対象メソッドを呼ぶだけの subject 以外を書かないようにする方が効く。
 RSpec/NamedSubject:
   Enabled: false
+
+# ブロックは初見だと返り値を書いていると気づけないので and_return にしたいが、
+# ブロックの方が見た目がスッキリして見やすいので、どちらでもお好きにどうぞ。
+RSpec/ReturnFromStub:
+  Enabled: false
