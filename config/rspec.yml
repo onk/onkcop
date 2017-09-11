@@ -37,6 +37,19 @@ RSpec/MultipleExpectations:
 RSpec/NamedSubject:
   Enabled: false
 
+# Model
+#  `- #method
+#      |- 頻出ケースのテスト 1
+#      |- 頻出ケースのテスト 2
+#      `- レアケース
+#          |- レアケースのテスト 1
+#          `- レアケースのテスト 2
+# のように括り出すと、レアケースのテストを読み飛ばせるようになり
+# テストを読む人にやさしくなる。
+# デフォルトの 3 より少し緩めてもヨサソウ。
+RSpec/NestedGroups:
+  Max: 4
+
 # ブロックは初見だと返り値を書いていると気づけないので and_return にしたいが、
 # ブロックの方が見た目がスッキリして見やすいので、どちらでもお好きにどうぞ。
 RSpec/ReturnFromStub:
