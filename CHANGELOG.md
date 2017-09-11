@@ -1,5 +1,17 @@
 # onkcop
 
+## v0.49.1.1 (2017-09-11)
+
+[full changelog](https://github.com/onk/onkcop/compare/v0.49.1.0...v0.49.1.1)
+
+* Update `rubocop-rspec` v1.16.0
+* Disable new `RSpec/ReturnFromStub` cop.
+* Exclude `config/environments/*.rb` from Metrics/BlockLength cop.
+* Disable `Performance/Casecmp` cop.
+* Disable `RSpec/EmptyLineAfterFinalLet` cop.
+* Relax `RSpec/NestedGroups` cop.
+
+
 ## v0.49.1.0 (2017-05-31)
 
 [full changelog](https://github.com/onk/onkcop/compare/v0.49.0.0...v0.49.1.0)
