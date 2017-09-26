@@ -365,6 +365,11 @@ Metrics/PerceivedComplexity:
 Performance/Casecmp:
   Enabled: false
 
+# 2.4 以降では each_key でも特にパフォーマンスに差が無いので
+# 読みやすさはほとんど変わらないし、書きやすさを取る。
+Performance/HashEachMethods:
+  Enabled: false
+
 #################### Security ##############################
 
 # 毎回 YAML.safe_load(yaml_str, [Date, Time]) するのは面倒で。。
