@@ -1,5 +1,16 @@
 # onkcop
 
+## v0.50.0.0 (2017-10-12)
+
+* Update `rubocop` v0.50.0 and `rubocop-rspec` v1.18.0
+* Disable `Performance/HashEachMethods` cop
+* Disable new `Style/OrAssignment` cop
+* Change cop's department from `Style` to `Naming`
+* Disable new `Lint/RescueWithoutErrorClass` cop
+* `node_modules` directory is now excluded by rubocop as default
+* Enable `Style/YodaCondition` cop with `equality_operators_only` style
+
+
 ## v0.49.1.1 (2017-09-11)
 
 [full changelog](https://github.com/onk/onkcop/compare/v0.49.1.0...v0.49.1.1)
