@@ -243,10 +243,9 @@ Style/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: comma
 
 # 0 <= foo && foo < 5 のように数直線上に並べるのは
-# コードを読みやすくするテクニック。
-# また、self == other, __FILE__ == $0 はイディオムなので許可。
+# コードを読みやすくするテクニックなので equality_operators_only に。
 Style/YodaCondition:
-  Enabled: false
+  EnforcedStyle: equality_operators_only
 
 # %w() と %i() が見分けづらいので Style/SymbolArray と合わせて無効に。
 # 書き手に委ねるという意味で、Enabled: false にしています。使っても良い。
