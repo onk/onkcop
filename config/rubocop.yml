@@ -164,6 +164,11 @@ Style/NumericLiterals:
 Style/NumericPredicate:
   Enabled: false
 
+# falsy な場合という条件式の方を意識させたい場合がある。
+# Style/IfUnlessModifier と同じ雰囲気。
+Style/OrAssignment:
+  Enabled: false
+
 # 正規表現にマッチさせた時の特殊変数の置き換えは Regex.last_match ではなく
 # 名前付きキャプチャを使って参照したいので auto-correct しない
 Style/PerlBackrefs:
