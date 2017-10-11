@@ -1,9 +1,9 @@
 # 自動生成されるものはチェック対象から除外する
 AllCops:
   Exclude:
-    - "vendor/**/*" # rubocop config/default.yml
+    - "node_modules/**/*" # rubocop config/default.yml
+    - "vendor/**/*"       # rubocop config/default.yml
     - "db/schema.rb"
-    - "node_modules/**/*"
   DisplayCopNames: true
 
 #################### Layout ################################
@@ -164,19 +164,15 @@ Style/NumericLiterals:
 Style/NumericPredicate:
   Enabled: false
 
+# falsy な場合という条件式の方を意識させたい場合がある。
+# Style/IfUnlessModifier と同じ雰囲気。
+Style/OrAssignment:
+  Enabled: false
+
 # 正規表現にマッチさせた時の特殊変数の置き換えは Regex.last_match ではなく
 # 名前付きキャプチャを使って参照したいので auto-correct しない
 Style/PerlBackrefs:
   AutoCorrect: false
-
-# has_ から始まるメソッドは許可する
-Style/PredicateName:
-  NamePrefixBlacklist:
-    - "is_"
-    - "have_"
-  NamePrefix:
-    - "is_"
-    - "have_"
 
 # Hash#has_key? の方が key? よりも意味が通る
 Style/PreferredHashMethods:
@@ -243,10 +239,9 @@ Style/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: comma
 
 # 0 <= foo && foo < 5 のように数直線上に並べるのは
-# コードを読みやすくするテクニック。
-# また、self == other, __FILE__ == $0 はイディオムなので許可。
+# コードを読みやすくするテクニックなので equality_operators_only に。
 Style/YodaCondition:
-  Enabled: false
+  EnforcedStyle: equality_operators_only
 
 # %w() と %i() が見分けづらいので Style/SymbolArray と合わせて無効に。
 # 書き手に委ねるという意味で、Enabled: false にしています。使っても良い。
@@ -261,6 +256,17 @@ Style/WordArray:
 # 中身を入れ替えて否定外しても良いんだけど、どちらが例外的な処理なのかが分かりづらくなる。
 Style/ZeroLengthPredicate:
   Enabled: false
+
+#################### Naming ################################
+
+# has_ から始まるメソッドは許可する
+Naming/PredicateName:
+  NamePrefixBlacklist:
+    - "is_"
+    - "have_"
+  NamePrefix:
+    - "is_"
+    - "have_"
 
 #################### Lint ##################################
 
@@ -290,6 +296,13 @@ Lint/EmptyWhen:
 # 定義できるエラーは RuntimeError ではなく StandardError を継承する。
 Lint/InheritException:
   EnforcedStyle: standard_error
+
+# 無指定だと StandardError を rescue するのは常識の範疇なので。
+# https://github.com/bbatsov/rubocop/issues/2943#issuecomment-330498533
+# rescue 後に何をするかは Lint/HandleExceptions でチェックするので
+# ココで想起させる必要は無さそう。
+Lint/RescueWithoutErrorClass:
+  Enabled: false
 
 # * 同名のメソッドがある場合にローカル変数に `_` を付ける
 # * 一時変数として `_` を付ける
@@ -350,6 +363,11 @@ Metrics/PerceivedComplexity:
 # downcase or upcase しての比較はイディオムの域なので、多少の
 # パフォーマンスの違いがあろうが casecmp に変える意義を感じない
 Performance/Casecmp:
+  Enabled: false
+
+# 2.4 以降では each_key でも特にパフォーマンスに差が無いので
+# 読みやすさはほとんど変わらないし、書きやすさを取る。
+Performance/HashEachMethods:
   Enabled: false
 
 #################### Security ##############################
