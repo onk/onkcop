@@ -1,9 +1,9 @@
 # 自動生成されるものはチェック対象から除外する
 AllCops:
   Exclude:
-    - "vendor/**/*" # rubocop config/default.yml
+    - "node_modules/**/*" # rubocop config/default.yml
+    - "vendor/**/*"       # rubocop config/default.yml
     - "db/schema.rb"
-    - "node_modules/**/*"
   DisplayCopNames: true
 
 #################### Layout ################################
