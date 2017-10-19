@@ -304,11 +304,6 @@ Lint/EmptyWhen:
 Lint/InheritException:
   EnforcedStyle: standard_error
 
-# top level return の不具合が直るまでは無効に
-# https://github.com/bbatsov/rubocop/pull/4737
-Lint/ReturnInVoidContext:
-  Enabled: false
-
 # 無指定だと StandardError を rescue するのは常識の範疇なので。
 # https://github.com/bbatsov/rubocop/issues/2943#issuecomment-330498533
 # rescue 後に何をするかは Lint/HandleExceptions でチェックするので
