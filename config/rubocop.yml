@@ -317,7 +317,10 @@ Lint/RescueWithoutErrorClass:
 Lint/UnderscorePrefixedVariableName:
   Enabled: false
 
-# 子クラスで実装させるつもりのメソッドで引っかかるので
+# 子クラスで実装させるつもりで中身が
+#   raise NotImplementedError
+# のみのメソッドが引っかかるので。
+# (raise せずに中身が空だと IgnoreEmptyMethods でセーフ)
 Lint/UnusedMethodArgument:
   Enabled: false
 
