@@ -1,5 +1,13 @@
 # onkcop
 
+## v0.51.0.0 (2017-10-20)
+
+* Update `rubocop` v0.51.0 and `rubocop-rspec` v1.19.0
+* Enable `Lint/ReturnInVoidContext` cop
+* Add `staging` env to `Rails/UnknownEnv` cop
+* Add comments to `Style/SafeNavigation` and `Lint/UnusedMethodArgument` cop
+
+
 ## v0.50.0.0 (2017-10-12)
 
 * Update `rubocop` v0.50.0 and `rubocop-rspec` v1.18.0
