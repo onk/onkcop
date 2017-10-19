@@ -13,3 +13,11 @@ Rails/SafeNavigation:
 # valid? チェックし忘れを防ぎたい
 Rails/SaveBang:
   Enabled: true
+
+# staging 環境を使っているので追加
+Rails/UnknownEnv:
+  Environments:
+    - development # rubocop default.yml
+    - test        # rubocop default.yml
+    - production  # rubocop default.yml
+    - staging

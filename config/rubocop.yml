@@ -186,7 +186,14 @@ Style/RedundantReturn:
 Style/RedundantSelf:
   Enabled: false
 
-# 無理して使うモンじゃない
+# user&.admin? が、[nil, true, false] の 3 値を返すことに一瞬で気づけず
+# boolean を返すっぽく見えてしまうので無効に。
+# user && user.admin? なら短絡評価で nil が返ってくるのが一目で分かるので。
+# (boolean を返すメソッド以外なら積極的に使いたいんだけどねぇ
+#
+# 他に auto-correct してはいけないパターンとして
+#   if hoge && hoge.count > 1
+# がある。
 Style/SafeNavigation:
   Enabled: false
 
@@ -297,11 +304,6 @@ Lint/EmptyWhen:
 Lint/InheritException:
   EnforcedStyle: standard_error
 
-# top level return の不具合が直るまでは無効に
-# https://github.com/bbatsov/rubocop/pull/4737
-Lint/ReturnInVoidContext:
-  Enabled: false
-
 # 無指定だと StandardError を rescue するのは常識の範疇なので。
 # https://github.com/bbatsov/rubocop/issues/2943#issuecomment-330498533
 # rescue 後に何をするかは Lint/HandleExceptions でチェックするので
@@ -315,7 +317,10 @@ Lint/RescueWithoutErrorClass:
 Lint/UnderscorePrefixedVariableName:
   Enabled: false
 
-# 子クラスで実装させるつもりのメソッドで引っかかるので
+# 子クラスで実装させるつもりで中身が
+#   raise NotImplementedError
+# のみのメソッドが引っかかるので。
+# (raise せずに中身が空だと IgnoreEmptyMethods でセーフ)
 Lint/UnusedMethodArgument:
   Enabled: false
 
