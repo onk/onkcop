@@ -45,6 +45,11 @@ Layout/IndentationConsistency:
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented_relative_to_receiver
 
+# {} は 1 行で書くときに主に使われるので、スペースよりも
+# 横に長くならない方が嬉しさが多い。
+# そもそも {| のスタイルの方が一般的だったと認識している。
+Layout/SpaceInsideBlockBraces:
+  SpaceBeforeBlockParameters: false
 
 #################### Lint ##################################
 
