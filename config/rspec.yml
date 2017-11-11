@@ -1,5 +1,9 @@
 require: "rubocop-rspec"
 
+# 日本語だと「〜の場合」になるので suffix でないと対応できない
+RSpec/ContextWording:
+  Enabled: false
+
 # subject はコピペ可搬性よりもそのまま USAGE であって欲しい
 RSpec/DescribedClass:
   EnforcedStyle: explicit
