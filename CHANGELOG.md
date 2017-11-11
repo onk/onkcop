@@ -1,5 +1,14 @@
 # onkcop
 
+## v0.51.0.1 (2017-10-20)
+
+* Update `rubocop-rspec` to v1.20.0
+* Disable new `RSpec/ContextWording` cop
+* Disable `Rails/Delegate`, `Rails/Exit`, `Rails/FilePath`,
+  `Rails/PluralizationGrammar` and `Rails/Present` cops
+* Enable `Rails/NotNullColumn` cop
+
+
 ## v0.51.0.0 (2017-10-20)
 
 * Update `rubocop` v0.51.0 and `rubocop-rspec` v1.19.0
