@@ -32,9 +32,12 @@ RSpec/ImplicitExpect:
 RSpec/InstanceVariable:
   Enabled: false
 
-# 強く 1 example 1 assertion の立場は取らないが、多すぎてもツラいので。
+# spec_helper で meta[:aggregate_failures] = true しているのを前提とする。
+# なるべく 1 example 1 assertion にしたいが、パフォーマンス上の理由で
+# aggregate_failures を書く場面が多く、こちらをデフォルトにしたい。
+# see: http://rspec.info/blog/2015/06/rspec-3-3-has-been-released/
 RSpec/MultipleExpectations:
-  Max: 3
+  Enabled: false
 
 # 変に名前つけて呼ぶ方が分かりづらい。
 # テスト対象メソッドを呼ぶだけの subject 以外を書かないようにする方が効く。
