@@ -1,0 +1,4 @@
+language: ruby
+cache: bundler
+rvm:
+  - ruby-head
