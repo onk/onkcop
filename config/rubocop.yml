@@ -38,6 +38,133 @@ Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented_relative_to_receiver
 
 
+#################### Lint ##################################
+
+# spec 内では
+# expect { subject }.to change { foo }
+# という書き方をよく行うので () を省略したい。
+# { foo } は明らかに change に紐付く。
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - "spec/**/*"
+
+# Style/EmptyCaseCondition と同じく網羅の表現力が empty when を認めた方が高いし、
+# 頻出する対象を最初の when で撥ねるのはパフォーマンス向上で頻出する。
+# また、
+#   case foo
+#   when 42
+#     # nop
+#   when 1..100
+#     ...
+#   end
+# と、下の when がキャッチしてしまう場合等に対応していない。
+# See. http://tech.sideci.com/entry/2016/11/01/105900
+Lint/EmptyWhen:
+  Enabled: false
+
+# RuntimeError は「特定の Error を定義できない場合」なので、
+# 定義できるエラーは RuntimeError ではなく StandardError を継承する。
+Lint/InheritException:
+  EnforcedStyle: standard_error
+
+# 無指定だと StandardError を rescue するのは常識の範疇なので。
+# https://github.com/bbatsov/rubocop/issues/2943#issuecomment-330498533
+# rescue 後に何をするかは Lint/HandleExceptions でチェックするので
+# ココで想起させる必要は無さそう。
+Lint/RescueWithoutErrorClass:
+  Enabled: false
+
+# * 同名のメソッドがある場合にローカル変数に `_` を付ける
+# * 一時変数として `_` を付ける
+# というテクニックは頻出する
+Lint/UnderscorePrefixedVariableName:
+  Enabled: false
+
+# 子クラスで実装させるつもりで中身が
+#   raise NotImplementedError
+# のみのメソッドが引っかかるので。
+# (raise せずに中身が空だと IgnoreEmptyMethods でセーフ)
+Lint/UnusedMethodArgument:
+  Enabled: false
+
+
+#################### Metrics ###############################
+
+# 30 まではギリギリ許せる範囲だったけど
+# リリースごとに 3 ずつぐらい下げていきます。20 まで下げたい。
+Metrics/AbcSize:
+  Max: 24
+
+# Gemfile, Guardfile は DSL 的で基本的に複雑にはならないので除外
+# rake, rspec, environments, routes は巨大な block 不可避なので除外
+# TODO: ExcludedMethods の精査
+Metrics/BlockLength:
+  Exclude:
+    - "Rakefile"
+    - "**/*.rake"
+    - "spec/**/*.rb"
+    - "Gemfile"
+    - "Guardfile"
+    - "config/environments/*.rb"
+    - "config/routes.rb"
+    - "config/routes/**/*.rb"
+    - "*.gemspec"
+
+# 6 は強すぎるので緩める
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+# * 警告 120文字
+# * 禁止 160文字
+# のイメージ
+Metrics/LineLength:
+  Max: 160
+  Exclude:
+    - "db/migrate/*.rb"
+
+# 20 行超えるのは migration ファイル以外滅多に無い
+Metrics/MethodLength:
+  Max: 20
+  Exclude:
+    - "db/migrate/*.rb"
+
+# 分岐の数。ガード句を多用しているとデフォルト 7 だと厳しい
+Metrics/PerceivedComplexity:
+  Max: 8
+
+
+#################### Naming ################################
+
+# has_ から始まるメソッドは許可する
+Naming/PredicateName:
+  NamePrefixBlacklist:
+    - "is_"
+    - "have_"
+  NamePrefix:
+    - "is_"
+    - "have_"
+
+
+#################### Performance ###########################
+
+# downcase or upcase しての比較はイディオムの域なので、多少の
+# パフォーマンスの違いがあろうが casecmp に変える意義を感じない
+Performance/Casecmp:
+  Enabled: false
+
+# 2.4 以降では each_key でも特にパフォーマンスに差が無いので
+# 読みやすさはほとんど変わらないし、書きやすさを取る。
+Performance/HashEachMethods:
+  Enabled: false
+
+
+#################### Security ##############################
+
+# 毎回 YAML.safe_load(yaml_str, [Date, Time]) するのは面倒で。。
+Security/YAMLLoad:
+  Enabled: false
+
+
 #################### Style #################################
 
 # レキシカルスコープの扱いが alias_method の方が自然。
@@ -245,15 +372,15 @@ Style/TrailingCommaInArguments:
 Style/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: comma
 
-# 0 <= foo && foo < 5 のように数直線上に並べるのは
-# コードを読みやすくするテクニックなので equality_operators_only に。
-Style/YodaCondition:
-  EnforcedStyle: equality_operators_only
-
 # %w() と %i() が見分けづらいので Style/SymbolArray と合わせて無効に。
 # 書き手に委ねるという意味で、Enabled: false にしています。使っても良い。
 Style/WordArray:
   Enabled: false
+
+# 0 <= foo && foo < 5 のように数直線上に並べるのは
+# コードを読みやすくするテクニックなので equality_operators_only に。
+Style/YodaCondition:
+  EnforcedStyle: equality_operators_only
 
 # 条件式で arr.size > 0 が使われた時に
 #   if !arr.empty?
@@ -262,126 +389,4 @@ Style/WordArray:
 # に修正されるのが嫌。
 # 中身を入れ替えて否定外しても良いんだけど、どちらが例外的な処理なのかが分かりづらくなる。
 Style/ZeroLengthPredicate:
-  Enabled: false
-
-#################### Naming ################################
-
-# has_ から始まるメソッドは許可する
-Naming/PredicateName:
-  NamePrefixBlacklist:
-    - "is_"
-    - "have_"
-  NamePrefix:
-    - "is_"
-    - "have_"
-
-#################### Lint ##################################
-
-# spec 内では
-# expect { subject }.to change { foo }
-# という書き方をよく行うので () を省略したい。
-# { foo } は明らかに change に紐付く。
-Lint/AmbiguousBlockAssociation:
-  Exclude:
-    - "spec/**/*"
-
-# Style/EmptyCaseCondition と同じく網羅の表現力が empty when を認めた方が高いし、
-# 頻出する対象を最初の when で撥ねるのはパフォーマンス向上で頻出する。
-# また、
-#   case foo
-#   when 42
-#     # nop
-#   when 1..100
-#     ...
-#   end
-# と、下の when がキャッチしてしまう場合等に対応していない。
-# See. http://tech.sideci.com/entry/2016/11/01/105900
-Lint/EmptyWhen:
-  Enabled: false
-
-# RuntimeError は「特定の Error を定義できない場合」なので、
-# 定義できるエラーは RuntimeError ではなく StandardError を継承する。
-Lint/InheritException:
-  EnforcedStyle: standard_error
-
-# 無指定だと StandardError を rescue するのは常識の範疇なので。
-# https://github.com/bbatsov/rubocop/issues/2943#issuecomment-330498533
-# rescue 後に何をするかは Lint/HandleExceptions でチェックするので
-# ココで想起させる必要は無さそう。
-Lint/RescueWithoutErrorClass:
-  Enabled: false
-
-# * 同名のメソッドがある場合にローカル変数に `_` を付ける
-# * 一時変数として `_` を付ける
-# というテクニックは頻出する
-Lint/UnderscorePrefixedVariableName:
-  Enabled: false
-
-# 子クラスで実装させるつもりで中身が
-#   raise NotImplementedError
-# のみのメソッドが引っかかるので。
-# (raise せずに中身が空だと IgnoreEmptyMethods でセーフ)
-Lint/UnusedMethodArgument:
-  Enabled: false
-
-#################### Metrics ###############################
-
-# 30 まではギリギリ許せる範囲だったけど
-# リリースごとに 3 ずつぐらい下げていきます。20 まで下げたい。
-Metrics/AbcSize:
-  Max: 24
-
-# Gemfile, Guardfile は DSL 的で基本的に複雑にはならないので除外
-# rake, rspec, environments, routes は巨大な block 不可避なので除外
-# TODO: ExcludedMethods の精査
-Metrics/BlockLength:
-  Exclude:
-    - "Rakefile"
-    - "**/*.rake"
-    - "spec/**/*.rb"
-    - "Gemfile"
-    - "Guardfile"
-    - "config/environments/*.rb"
-    - "config/routes.rb"
-    - "config/routes/**/*.rb"
-    - "*.gemspec"
-
-# 6 は強すぎるので緩める
-Metrics/CyclomaticComplexity:
-  Max: 10
-
-# * 警告 120文字
-# * 禁止 160文字
-# のイメージ
-Metrics/LineLength:
-  Max: 160
-  Exclude:
-    - "db/migrate/*.rb"
-
-# 20 行超えるのは migration ファイル以外滅多に無い
-Metrics/MethodLength:
-  Max: 20
-  Exclude:
-    - "db/migrate/*.rb"
-
-# 分岐の数。ガード句を多用しているとデフォルト 7 だと厳しい
-Metrics/PerceivedComplexity:
-  Max: 8
-
-#################### Performance ###########################
-
-# downcase or upcase しての比較はイディオムの域なので、多少の
-# パフォーマンスの違いがあろうが casecmp に変える意義を感じない
-Performance/Casecmp:
-  Enabled: false
-
-# 2.4 以降では each_key でも特にパフォーマンスに差が無いので
-# 読みやすさはほとんど変わらないし、書きやすさを取る。
-Performance/HashEachMethods:
-  Enabled: false
-
-#################### Security ##############################
-
-# 毎回 YAML.safe_load(yaml_str, [Date, Time]) するのは面倒で。。
-Security/YAMLLoad:
   Enabled: false
