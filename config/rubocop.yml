@@ -4,7 +4,6 @@ AllCops:
     - "node_modules/**/*" # rubocop config/default.yml
     - "vendor/**/*"       # rubocop config/default.yml
     - "db/schema.rb"
-  DisplayCopNames: true
 
 #################### Layout ################################
 
