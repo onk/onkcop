@@ -1,5 +1,17 @@
 # onkcop
 
+## v0.52.0.0 (2017-12-20)
+
+* Update `rubocop` v0.52.0 and `rubocop-rspec` v1.21.0
+* Remove `DisplayCopNames` configuration
+* Enable new `Style/ClassStructure` cop
+* Disalbe `Style/FormatStringToken` cop
+* Change `Layout/SpaceBeforeBlockBraces` cop's empty braces style to `space`
+* Change `Style/RescueStandardError` cop to implicit style
+* Change `RSpec/MultipleExpectations` cop to `AggregateFailuresByDefault` style
+* Exclude `bin/setup`, `bin/update` from `Style/MixinUsage` cop
+
+
 ## v0.51.0.1 (2017-11-11)
 
 * Update `rubocop-rspec` to v1.20.0
