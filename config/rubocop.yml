@@ -7,6 +7,14 @@ AllCops:
 
 #################### Layout ################################
 
+# メソッドをグループ分けして書き順を揃えておくと読みやすくなる。
+# 多少のツラミはあるかもしれない。
+# TODO: Categories を調整することで
+# https://github.com/pocke/rubocop-rails-order_model_declarative_methods
+# を再現できそう。
+Layout/ClassStructure:
+  Enabled: true
+
 # メソッドチェーンの改行は末尾に . を入れる
 # REPL に貼り付けた際の暴発を防ぐため
 Layout/DotPosition:
