@@ -66,13 +66,6 @@ Lint/EmptyWhen:
 Lint/InheritException:
   EnforcedStyle: standard_error
 
-# 無指定だと StandardError を rescue するのは常識の範疇なので。
-# https://github.com/bbatsov/rubocop/issues/2943#issuecomment-330498533
-# rescue 後に何をするかは Lint/HandleExceptions でチェックするので
-# ココで想起させる必要は無さそう。
-Lint/RescueWithoutErrorClass:
-  Enabled: false
-
 # * 同名のメソッドがある場合にローカル変数に `_` を付ける
 # * 一時変数として `_` を付ける
 # というテクニックは頻出する
@@ -311,6 +304,10 @@ Style/RedundantReturn:
 # 特に model 内において、ローカル変数とメソッド呼び出しの区別をつけた方が分かりやすい場合が多い
 Style/RedundantSelf:
   Enabled: false
+
+# 無指定だと StandardError を rescue するのは常識の範疇なので。
+Style/RescueStandardError:
+  EnforcedStyle: implicit
 
 # user&.admin? が、[nil, true, false] の 3 値を返すことに一瞬で気づけず
 # boolean を返すっぽく見えてしまうので無効に。
