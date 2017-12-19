@@ -245,6 +245,12 @@ Style/EmptyMethod:
 Style/FormatString:
   EnforcedStyle: percent
 
+# strftime("%Y%m%d") の %d で引っかかる false positive がある。
+# また、url escape でも引っかかるらしい。
+# see: pull/5230, issues/5242
+Style/FormatStringToken:
+  Enabled: false
+
 # まだ対応するには早い
 Style/FrozenStringLiteralComment:
   Enabled: false
