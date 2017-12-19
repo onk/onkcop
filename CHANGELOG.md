@@ -1,6 +1,6 @@
 # onkcop
 
-## v0.51.0.1 (2017-10-20)
+## v0.51.0.1 (2017-11-11)
 
 * Update `rubocop-rspec` to v1.20.0
 * Disable new `RSpec/ContextWording` cop
