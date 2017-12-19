@@ -4,9 +4,16 @@ AllCops:
     - "node_modules/**/*" # rubocop config/default.yml
     - "vendor/**/*"       # rubocop config/default.yml
     - "db/schema.rb"
-  DisplayCopNames: true
 
 #################### Layout ################################
+
+# メソッドをグループ分けして書き順を揃えておくと読みやすくなる。
+# 多少のツラミはあるかもしれない。
+# TODO: Categories を調整することで
+# https://github.com/pocke/rubocop-rails-order_model_declarative_methods
+# を再現できそう。
+Layout/ClassStructure:
+  Enabled: true
 
 # メソッドチェーンの改行は末尾に . を入れる
 # REPL に貼り付けた際の暴発を防ぐため
@@ -37,6 +44,10 @@ Layout/IndentationConsistency:
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented_relative_to_receiver
 
+# デフォルト値がおかしい。
+# v0.52.1 で解消。 see: pull/5263
+Layout/SpaceBeforeBlockBraces:
+  EnforcedStyleForEmptyBraces: space
 
 #################### Lint ##################################
 
@@ -66,13 +77,6 @@ Lint/EmptyWhen:
 # 定義できるエラーは RuntimeError ではなく StandardError を継承する。
 Lint/InheritException:
   EnforcedStyle: standard_error
-
-# 無指定だと StandardError を rescue するのは常識の範疇なので。
-# https://github.com/bbatsov/rubocop/issues/2943#issuecomment-330498533
-# rescue 後に何をするかは Lint/HandleExceptions でチェックするので
-# ココで想起させる必要は無さそう。
-Lint/RescueWithoutErrorClass:
-  Enabled: false
 
 # * 同名のメソッドがある場合にローカル変数に `_` を付ける
 # * 一時変数として `_` を付ける
@@ -245,6 +249,12 @@ Style/EmptyMethod:
 Style/FormatString:
   EnforcedStyle: percent
 
+# strftime("%Y%m%d") の %d で引っかかる false positive がある。
+# また、url escape でも引っかかるらしい。
+# see: pull/5230, issues/5242
+Style/FormatStringToken:
+  Enabled: false
+
 # まだ対応するには早い
 Style/FrozenStringLiteralComment:
   Enabled: false
@@ -279,6 +289,15 @@ Style/Lambda:
 Style/MethodCalledOnDoEndBlock:
   Enabled: true
 
+# この 2 つは単発で動かすのが分かっているので Object を汚染しても問題ない。
+# spec/dummy は Rails Engine を開発するときに絶対に引っかかるので入れておく。
+Style/MixinUsage:
+  Exclude:
+    - "bin/setup"
+    - "bin/update"
+    - "spec/dummy/bin/setup"
+    - "spec/dummy/bin/update"
+
 # 1_000_000 と区切り文字が 2 個以上必要になる場合のみ _ 区切りを必須にする
 # 10_000_00 は許可しない。(これは例えば 10000 ドルをセント単位にする時に便利だが
 # 頻出しないので foolproof に振る
@@ -312,6 +331,10 @@ Style/RedundantReturn:
 # 特に model 内において、ローカル変数とメソッド呼び出しの区別をつけた方が分かりやすい場合が多い
 Style/RedundantSelf:
   Enabled: false
+
+# 無指定だと StandardError を rescue するのは常識の範疇なので。
+Style/RescueStandardError:
+  EnforcedStyle: implicit
 
 # user&.admin? が、[nil, true, false] の 3 値を返すことに一瞬で気づけず
 # boolean を返すっぽく見えてしまうので無効に。
