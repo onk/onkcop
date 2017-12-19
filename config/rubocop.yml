@@ -271,6 +271,15 @@ Style/Lambda:
 Style/MethodCalledOnDoEndBlock:
   Enabled: true
 
+# この 2 つは単発で動かすのが分かっているので Object を汚染しても問題ない。
+# spec/dummy は Rails Engine を開発するときに絶対に引っかかるので入れておく。
+Style/MixinUsage:
+  Exclude:
+    - "bin/setup"
+    - "bin/update"
+    - "spec/dummy/bin/setup"
+    - "spec/dummy/bin/update"
+
 # 1_000_000 と区切り文字が 2 個以上必要になる場合のみ _ 区切りを必須にする
 # 10_000_00 は許可しない。(これは例えば 10000 ドルをセント単位にする時に便利だが
 # 頻出しないので foolproof に振る
