@@ -151,6 +151,19 @@ Naming/PredicateName:
 
 #################### Performance ###########################
 
+# block を引数で受け取って block.call するのは
+# block を引数で受け取って、それを捨てて yield するのに比べて
+# 非常に自然なので許可する。
+#   def foo(&b)
+#     b.call
+#   end
+# block を引数で受け取らずに yield する方がパフォーマンス的には良い。
+#   def foo
+#     yield
+#   end
+Performance/RedundantBlockCall:
+  Enabled: false
+
 # downcase or upcase しての比較はイディオムの域なので、多少の
 # パフォーマンスの違いがあろうが casecmp に変える意義を感じない
 Performance/Casecmp:
