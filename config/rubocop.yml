@@ -248,6 +248,7 @@ Style/FormatString:
 # strftime("%Y%m%d") の %d で引っかかる false positive がある。
 # また、url escape でも引っかかるらしい。
 # see: pull/5230, issues/5242
+# 上記 PR はマージされたが、まだダメっぽいので引き続き disable にする
 Style/FormatStringToken:
   Enabled: false
 
