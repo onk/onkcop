@@ -44,10 +44,6 @@ Layout/IndentationConsistency:
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented_relative_to_receiver
 
-# デフォルト値がおかしい。
-# v0.52.1 で解消。 see: pull/5263
-Layout/SpaceBeforeBlockBraces:
-  EnforcedStyleForEmptyBraces: space
 
 #################### Lint ##################################
 
@@ -252,6 +248,7 @@ Style/FormatString:
 # strftime("%Y%m%d") の %d で引っかかる false positive がある。
 # また、url escape でも引っかかるらしい。
 # see: pull/5230, issues/5242
+# 上記 PR はマージされたが、まだダメっぽいので引き続き disable にする
 Style/FormatStringToken:
   Enabled: false
 
