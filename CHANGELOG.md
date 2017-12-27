@@ -1,5 +1,14 @@
 # onkcop
 
+## v0.52.1.0 (2017-12-28)
+
+* Update `rubocop` to v0.52.1
+* Use `Layout/SpaceBeforeBlockBraces` cop's default configuration
+* Update `TargetRubyVersion` of auto-generate configuration to 2.5
+* `Lint/AmbiguousBlockAssociation`, `Style/BlockDelimiters` and
+  `Style/Semicolon` cops are now exclude only `spec/**/*_spec.rb` instead of `spec/**/*`
+
+
 ## v0.52.0.0 (2017-12-20)
 
 * Update `rubocop` v0.52.0 and `rubocop-rspec` v1.21.0
