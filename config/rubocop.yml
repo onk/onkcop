@@ -102,7 +102,7 @@ Metrics/BlockLength:
   Exclude:
     - "Rakefile"
     - "**/*.rake"
-    - "spec/**/*_spec.rb"
+    - "spec/**/*.rb"
     - "Gemfile"
     - "Guardfile"
     - "config/environments/*.rb"
