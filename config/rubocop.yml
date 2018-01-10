@@ -16,7 +16,8 @@ Layout/ClassStructure:
   Enabled: true
 
 # メソッドチェーンの改行は末尾に . を入れる
-# REPL に貼り付けた際の暴発を防ぐため
+# * REPL に貼り付けた際の暴発を防ぐため
+# * 途中にコメントをはさむことができて実用上圧倒的に便利
 Layout/DotPosition:
   EnforcedStyle: trailing
 
