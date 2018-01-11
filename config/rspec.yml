@@ -22,6 +22,12 @@ RSpec/EmptyLineAfterFinalLet:
 RSpec/ExampleLength:
   Max: 8
 
+# block の方がテスト対象が
+# * `{}` の前後のスペースと相まって目立つ
+# * 普段書く形と同じなので自然に脳内に入ってくる
+RSpec/ExpectChange:
+  EnforcedStyle: block
+
 # one-liner の should は書きやすいし意味が通りやすいし副作用も無いので撥ねる必要がない。
 # ただ expect 派に対して強制するほどでもないので統一はしない。
 RSpec/ImplicitExpect:
