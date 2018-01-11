@@ -1,5 +1,11 @@
 # onkcop
 
+## v0.52.1.1 (2018-01-11)
+
+* Update `rubocop-rspec` to v1.22.0
+* Change new `RSpec/ExpectChange` cop to `block` style
+
+
 ## v0.52.1.0 (2017-12-28)
 
 * Update `rubocop` to v0.52.1
