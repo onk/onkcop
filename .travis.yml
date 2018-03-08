@@ -1,4 +1,5 @@
 language: ruby
-cache: bundler
+# NOTE: travis build fails when `install.bunler` with cache.
+# cache: bundler
 rvm:
   - ruby-head
