@@ -93,6 +93,12 @@ Lint/UnderscorePrefixedVariableName:
 Lint/UnusedMethodArgument:
   Enabled: false
 
+# select 以外では引っかからないと思うので
+# mutating_methods のチェックを有効に。
+# TODO: select は引数が無い (ブロックのみ) の場合にだけチェックする
+# ようにすると誤検知がほぼ無くなる？
+Lint/Void:
+  CheckForMethodsWithNoSideEffects: true
 
 #################### Metrics ###############################
 
@@ -150,17 +156,18 @@ Naming/PredicateName:
     - "is_"
     - "have_"
 
+# 3 文字未満だと指摘されるが、未使用を示す _ や e(rror), b(lock),
+# n(umber) といった 1 文字変数は頻出するし、前置詞(by, to, ...)や
+# よく知られた省略語 (op: operator とか pk: primary key とか) も妥当。
+# 変数 s にどんな文字列かを形容したい場合と、不要な場合とがある＝無効
+Naming/UncommunicativeMethodParamName:
+  Enabled: false
 
 #################### Performance ###########################
 
 # downcase or upcase しての比較はイディオムの域なので、多少の
 # パフォーマンスの違いがあろうが casecmp に変える意義を感じない
 Performance/Casecmp:
-  Enabled: false
-
-# 2.4 以降では each_key でも特にパフォーマンスに差が無いので
-# 読みやすさはほとんど変わらないし、書きやすさを取る。
-Performance/HashEachMethods:
   Enabled: false
 
 
@@ -242,6 +249,10 @@ Style/EmptyCaseCondition:
 Style/EmptyElse:
   EnforcedStyle: empty
 
+# ガード句と本質を分けるのは良いコードスタイルなので有効化
+Style/EmptyLineAfterGuardClause:
+  Enabled: true
+
 # 空メソッドの場合だけ1行で書かなければいけない理由が無い
 # 「セミコロンは使わない」に寄せた方がルールがシンプル
 Style/EmptyMethod:
@@ -250,13 +261,6 @@ Style/EmptyMethod:
 # いずれかに揃えるのならば `sprintf` や `format` より String#% が好きです
 Style/FormatString:
   EnforcedStyle: percent
-
-# strftime("%Y%m%d") の %d で引っかかる false positive がある。
-# また、url escape でも引っかかるらしい。
-# see: pull/5230, issues/5242
-# 上記 PR はマージされたが、まだダメっぽいので引き続き disable にする
-Style/FormatStringToken:
-  Enabled: false
 
 # まだ対応するには早い
 Style/FrozenStringLiteralComment:
@@ -390,12 +394,16 @@ Style/TernaryParentheses:
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: comma
 
-# 複数行の場合はケツカンマを入れる(リテラル)
+# 複数行の場合はケツカンマを入れる(Arrayリテラル)
 # JSON がケツカンマを許していないという反対意見もあるが、
 # 古い JScript の仕様に縛られる必要は無い。
 # IE9 以降はリテラルでケツカンマ OK なので正しい差分行の検出に寄せる。
 # 2 insertions(+), 1 deletion(-) ではなく、1 insertions
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+# 複数行の場合はケツカンマを入れる(Hashリテラル)
+Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: comma
 
 # %w() と %i() が見分けづらいので Style/SymbolArray と合わせて無効に。
