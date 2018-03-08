@@ -1,5 +1,17 @@
 # onkcop
 
+## v0.53.0.0 (2018-03-09)
+
+* Update `rubocop` v0.53.0 and `rubocop-rspec` v1.24.0
+* `Style/TrailingCommaInLiteral` cop is separated to `Style/TrailingCommaInArrayLiteral` and `Style/TrailingCommaInHashLiteral`
+* `Performance/HashEachMethods` cop is removed
+* Disable new `Naming/UncommunicativeMethodParamName` cop
+* Enable `Style/FormatStringToken` cop
+* Enable new `Style/EmptyLineAfterGuardClause` cop
+* Enable `Lint/Void` cop's mutating methods check
+* Remove `TargetRailsVersion` from template
+* Change `Layout/SpaceInsideBlockBraces` cop option
+
 ## v0.52.1.1 (2018-01-11)
 
 * Update `rubocop-rspec` to v1.22.0
