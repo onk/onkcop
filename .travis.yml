@@ -2,7 +2,3 @@ language: ruby
 cache: bundler
 rvm:
   - ruby-head
-# NOTE: travis build fails on bundler v1.16.1 && rubygems v2.7.3.
-# Update travis's rubygems to v2.7.4.
-before_install:
-  - gem update --system
