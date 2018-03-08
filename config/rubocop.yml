@@ -93,6 +93,12 @@ Lint/UnderscorePrefixedVariableName:
 Lint/UnusedMethodArgument:
   Enabled: false
 
+# select 以外では引っかからないと思うので
+# mutating_methods のチェックを有効に。
+# TODO: select は引数が無い (ブロックのみ) の場合にだけチェックする
+# ようにすると誤検知がほぼ無くなる？
+Lint/Void:
+  CheckForMethodsWithNoSideEffects: true
 
 #################### Metrics ###############################
 
