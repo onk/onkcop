@@ -379,6 +379,13 @@ Style/StringMethods:
 Style/SymbolArray:
   Enabled: false
 
+# File.open(path) {|f| f.read } の方が
+# File.open(path, &:read) よりも閉じてる感があるので。
+# (でも File.read(path) を使うべき案件ではある)
+Style/SymbolProc:
+  IgnoredMethods:
+    - open
+
 # 三項演算子は分かりやすく使いたい。
 # () を外さない方が条件式が何なのか読み取りやすいと感じる。
 Style/TernaryParentheses:
