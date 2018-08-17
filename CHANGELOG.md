@@ -1,5 +1,9 @@
 # onkcop
 
+## v0.53.0.1 (2018-08-17)
+
+* Relax rubocop dependency for `rubocop-rspec` (@sue445)
+
 ## v0.53.0.0 (2018-03-09)
 
 * Update `rubocop` v0.53.0 and `rubocop-rspec` v1.24.0
