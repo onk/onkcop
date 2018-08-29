@@ -21,6 +21,10 @@ Layout/ClassStructure:
 Layout/DotPosition:
   EnforcedStyle: trailing
 
+# ガード句と本質を分けるのは良いコードスタイルなので有効化
+Layout/EmptyLineAfterGuardClause:
+  Enabled: true
+
 # 桁揃えが綺麗にならないことが多いので migration は除外
 Layout/ExtraSpacing:
   Exclude:
@@ -248,10 +252,6 @@ Style/EmptyCaseCondition:
 # 明示的に else で nil を返すのは分かりやすいので許可する
 Style/EmptyElse:
   EnforcedStyle: empty
-
-# ガード句と本質を分けるのは良いコードスタイルなので有効化
-Style/EmptyLineAfterGuardClause:
-  Enabled: true
 
 # 空メソッドの場合だけ1行で書かなければいけない理由が無い
 # 「セミコロンは使わない」に寄せた方がルールがシンプル
