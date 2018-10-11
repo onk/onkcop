@@ -1,5 +1,9 @@
 # onkcop
 
+## v0.53.0.2 (2018-10-11)
+
+* Remove `Style/EmptyLineAfterGuardClause` cop's configuration
+
 ## v0.53.0.1 (2018-08-17)
 
 * Relax rubocop dependency for `rubocop-rspec` (@sue445)
