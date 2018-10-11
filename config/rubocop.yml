@@ -249,10 +249,6 @@ Style/EmptyCaseCondition:
 Style/EmptyElse:
   EnforcedStyle: empty
 
-# ガード句と本質を分けるのは良いコードスタイルなので有効化
-Style/EmptyLineAfterGuardClause:
-  Enabled: true
-
 # 空メソッドの場合だけ1行で書かなければいけない理由が無い
 # 「セミコロンは使わない」に寄せた方がルールがシンプル
 Style/EmptyMethod:
