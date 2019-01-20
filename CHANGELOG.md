@@ -1,5 +1,9 @@
 # onkcop
 
+## v0.53.0.3 (2019-01-20)
+
+* Ignored `Style/YodaCondition` (@sue445)
+
 ## v0.53.0.2 (2018-10-11)
 
 * Remove `Style/EmptyLineAfterGuardClause` cop's configuration
