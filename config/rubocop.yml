@@ -409,8 +409,9 @@ Style/WordArray:
 
 # 0 <= foo && foo < 5 のように数直線上に並べるのは
 # コードを読みやすくするテクニックなので equality_operators_only に。
-Style/YodaCondition:
-  EnforcedStyle: equality_operators_only
+# Style/YodaCondition:
+#   # TODO: rubocop 0.63.0以降はforbid_for_equality_operators_onlyなので依存を引き上げれば有効にできる
+#   EnforcedStyle: forbid_for_equality_operators_only
 
 # 条件式で arr.size > 0 が使われた時に
 #   if !arr.empty?
