@@ -40,8 +40,9 @@ Layout/ExtraSpacing:
 #   EnforcedStyle: consistent
 
 # private/protected は一段深くインデントする
-Layout/IndentationConsistency:
-  EnforcedStyle: rails
+# TODO: rubocop 0.72.0でEnforcedStyle名が変わったのでコメントアウト。0.72.0以降になれば有効にできる
+# Layout/IndentationConsistency:
+#   EnforcedStyle: indented_internal_methods
 
 # メソッドチェーン感がより感じられるインデントにする
 Layout/MultilineMethodCallIndentation:
