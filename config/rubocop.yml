@@ -149,7 +149,7 @@ Metrics/PerceivedComplexity:
 
 # has_ から始まるメソッドは許可する
 Naming/PredicateName:
-  NamePrefixBlacklist:
+  ForbiddenPrefixes:
     - "is_"
     - "have_"
   NamePrefix:
