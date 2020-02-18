@@ -202,10 +202,6 @@ Style/BlockDelimiters:
   Exclude:
     - "spec/**/*_spec.rb"
 
-# option 等、明示的にハッシュにした方が分かりやすい場合もある
-Style/BracesAroundHashParameters:
-  Enabled: false
-
 # scope が違うとか親 module の存在確認が必要とかデメリットはあるが、
 # namespace 付きのクラスはかなり頻繁に作るので簡単に書きたい。
 Style/ClassAndModuleChildren:
