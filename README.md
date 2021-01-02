@@ -6,6 +6,12 @@ OnkCop is a RuboCop configration gem.
 
 [rubocop のしつけ方 - onk.ninja](http://blog.onk.ninja/2015/10/27/rubocop-getting-started)
 
+## Deprecated
+
+onkcop basically ended with rubocop v0.53.0 in 2018.
+I'm not thinking about the acceptance of new cops.
+(Maintenance work will continue.)
+
 ## Usage
 
 Setup .rubocop.yml
