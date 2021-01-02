@@ -41,6 +41,14 @@ Layout/FirstHashElementIndentation:
 Layout/IndentationConsistency:
   EnforcedStyle: indented_internal_methods
 
+# * 警告 120文字
+# * 禁止 160文字
+# のイメージ
+Layout/LineLength:
+  Max: 160
+  Exclude:
+    - "db/migrate/*.rb"
+
 # メソッドチェーン感がより感じられるインデントにする
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented_relative_to_receiver
@@ -125,14 +133,6 @@ Metrics/BlockLength:
 # 6 は強すぎるので緩める
 Metrics/CyclomaticComplexity:
   Max: 10
-
-# * 警告 120文字
-# * 禁止 160文字
-# のイメージ
-Layout/LineLength:
-  Max: 160
-  Exclude:
-    - "db/migrate/*.rb"
 
 # 20 行超えるのは migration ファイル以外滅多に無い
 Metrics/MethodLength:
