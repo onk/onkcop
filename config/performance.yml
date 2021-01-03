@@ -1,0 +1,6 @@
+# downcase or upcase しての比較はイディオムの域なので、多少の
+# パフォーマンスの違いがあろうが casecmp に変える意義を感じない
+Performance/Casecmp:
+  Enabled: false
+
+

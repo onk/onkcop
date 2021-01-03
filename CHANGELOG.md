@@ -1,5 +1,10 @@
 # onkcop
 
+## v1.0.0.0 (2021-01-03)
+
+* Update `rubocop` v0.80.0 and `rubocop-rspec` v1.34.0
+  - Thanks to @Narazaka, @sue445
+
 ## v0.53.0.3 (2019-01-20)
 
 * Ignored `Style/YodaCondition` (@sue445)

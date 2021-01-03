@@ -29,20 +29,25 @@ Layout/ExtraSpacing:
 # special_inside_parentheses (default) と比べて
 # * 横に長くなりづらい
 # * メソッド名の長さが変わったときに diff が少ない
-# TODO: rubocop 0.68.0でcop名が変わったのでコメントアウト。0.68.0以降になれば有効にできる
-# Layout/IndentFirstArrayElement:
-#   EnforcedStyle: consistent
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
 
 # ({ と hash を開始した場合に ( の位置にインデントさせる
 # そもそも {} が必要ない可能性が高いが Style/BracesAroundHashParameters はチェックしないことにしたので
-# TODO: rubocop 0.68.0でcop名が変わったのでコメントアウト。0.68.0以降になれば有効にできる
-# Layout/IndentFirstHashElement:
-#   EnforcedStyle: consistent
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
 
 # private/protected は一段深くインデントする
-# TODO: rubocop 0.72.0でEnforcedStyle名が変わったのでコメントアウト。0.72.0以降になれば有効にできる
-# Layout/IndentationConsistency:
-#   EnforcedStyle: indented_internal_methods
+Layout/IndentationConsistency:
+  EnforcedStyle: indented_internal_methods
+
+# * 警告 120文字
+# * 禁止 160文字
+# のイメージ
+Layout/LineLength:
+  Max: 160
+  Exclude:
+    - "db/migrate/*.rb"
 
 # メソッドチェーン感がより感じられるインデントにする
 Layout/MultilineMethodCallIndentation:
@@ -129,14 +134,6 @@ Metrics/BlockLength:
 Metrics/CyclomaticComplexity:
   Max: 10
 
-# * 警告 120文字
-# * 禁止 160文字
-# のイメージ
-Layout/LineLength:
-  Max: 160
-  Exclude:
-    - "db/migrate/*.rb"
-
 # 20 行超えるのは migration ファイル以外滅多に無い
 Metrics/MethodLength:
   Max: 20
@@ -150,6 +147,13 @@ Metrics/PerceivedComplexity:
 
 #################### Naming ################################
 
+# 3 文字未満だと指摘されるが、未使用を示す _ や e(rror), b(lock),
+# n(umber) といった 1 文字変数は頻出するし、前置詞(by, to, ...)や
+# よく知られた省略語 (op: operator とか pk: primary key とか) も妥当。
+# 変数 s にどんな文字列かを形容したい場合と、不要な場合とがある＝無効
+Naming/MethodParameterName:
+  Enabled: false
+
 # has_ から始まるメソッドは許可する
 Naming/PredicateName:
   ForbiddenPrefixes:
@@ -158,21 +162,6 @@ Naming/PredicateName:
   NamePrefix:
     - "is_"
     - "have_"
-
-# 3 文字未満だと指摘されるが、未使用を示す _ や e(rror), b(lock),
-# n(umber) といった 1 文字変数は頻出するし、前置詞(by, to, ...)や
-# よく知られた省略語 (op: operator とか pk: primary key とか) も妥当。
-# 変数 s にどんな文字列かを形容したい場合と、不要な場合とがある＝無効
-Naming/MethodParameterName:
-  Enabled: false
-
-#################### Performance ###########################
-
-# downcase or upcase しての比較はイディオムの域なので、多少の
-# パフォーマンスの違いがあろうが casecmp に変える意義を感じない
-Performance/Casecmp:
-  Enabled: false
-
 
 #################### Security ##############################
 
